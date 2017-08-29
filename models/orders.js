@@ -22,12 +22,14 @@ Orders.create = order => {
 
 
 // ------------------- Finders --------------------------
-// ask about multi finders
 Orders.findAll= () => {
     return db.query(`
         SELECT * FROM orders
     `)
 },
+
+
+// if query.selector is empty string, will just skip
 Orders.findBy= query => {
     return db.query(`
         SELECT * FROM orders
@@ -44,6 +46,7 @@ Orders.findBy= query => {
         query.employee_id])
 },
 
+// think about and queries
 
 Orders.findByReferenceNumber= refNum => {
     return db.query(`

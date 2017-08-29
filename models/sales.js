@@ -23,4 +23,16 @@ Sale.findByOrderId = order_id => {
         WHERE order_id = $1
     `,[order_id])
 }
+Sale.findByCases = cases => {
+    return db.query(`
+        SELECT * FROM sales
+        WHERE cases = $1
+    `,[cases])
+}
+Sale.findByMoment = moment => {
+    return db.query(`
+        SELECT * FROM sales
+        WHERE date_info = $1
+    `,[moment])
+}
 module.exports = Sale;
