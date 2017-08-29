@@ -25,7 +25,7 @@ class App extends Component {
 	      <Route path='/accounts' component={Accounts}/>
 	      <Route path='/add-note' component={AddNote}/>
 	      <Route path='/add-event' component={AddEvent}/>
-	      <Route path='/add-buyer' component={AddBuyer}/>
+	      <Route path='/add-account' component={AddBuyer}/>
 	      <Route path='/buyer' component={BuyerPage}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
 

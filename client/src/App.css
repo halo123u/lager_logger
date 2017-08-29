@@ -3,12 +3,15 @@ body {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
   margin: 0;
+  margin-top: 44px;
 }
 
 nav {
   display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   width: 100%;
   justify-content: space-between;
@@ -24,7 +27,7 @@ nav img {
 
 h1 {
   font-weight: bold;
-  font-size: 36px;
+  font-size: 28px;
   color: rgb(74,74,74);
   margin-left: 16px;
   margin-top: 20px;
@@ -66,13 +69,16 @@ p {
   padding: 10px;
 }
 
-.activity {
+.activity, .account {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
+.account {
+  padding: 20px;
+}
 .content {
   margin: 10px;
 }
@@ -212,7 +218,7 @@ textarea {
   padding: 20px 10px 15px 10px;
 }
 
-input[type=text],input[type=number],input[type=date] {
+input[type=text],input[type=number],input[type=date],input[type=time] {
   border: 1px solid #979797;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
   border-radius: 3px;
@@ -233,6 +239,12 @@ input[type=number] {
 input[type=radio] {
   margin-bottom: 25px;
 }
+
+input[type=time],input[type=date] {
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 14px;
+}
+
 
 select,option {
   background: linear-gradient(#F2F2F2, #D4D4D4);
@@ -255,4 +267,6 @@ select,option {
   display: block;
 }
 
-
+.optional {
+  color: #979797;
+}
