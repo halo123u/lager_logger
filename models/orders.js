@@ -22,8 +22,13 @@ Orders.create = order => {
 
 
 // ------------------- Finders --------------------------
+Orders.findAll= () => {
+    return db.query(`
+        SELECT * FROM orders
+    `)
+},
 Orders.findByReferenceNumber= refNum => {
-    return db.many(`
+    return db.query(`
         SELECT * FROM orders
         WHERE refence_number = $1
     `,[refNum])
@@ -72,5 +77,10 @@ Orders.update = (options) => {
         options.employee_id,
         options.order_id])
 }
+
+
+
+
+
 
 module.exports = User;
