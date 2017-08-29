@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class AddOrderVisit extends Component {
 	render () {
@@ -50,10 +51,9 @@ class AddOrderVisit extends Component {
 				</div>
 					
 
-
 					<div className='buttons'>
 						<button type='submit'>OK</button>
-						<button>Cancel</button>
+						<Link to='/buyer'><button>Cancel</button></Link>
 					</div>
 				</form>
 			</div>
