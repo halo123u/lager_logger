@@ -9,6 +9,7 @@ body {
 nav {
   display: flex;
   width: 100vw;
+  width: 100%;
   justify-content: space-between;
   align-items:center;
   height: 44px;
@@ -54,6 +55,10 @@ p {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
   margin: 20px 10px;
   padding: 10px;
+}
+
+.padded {
+  padding-top: 25px;
 }
 
 .icon {
@@ -159,8 +164,9 @@ textarea {
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
   margin: 10px auto;
   height: 45vh;
-  width: 95%;
+  width: 90vw;
   padding: 20px 10px;
+  font-size: 14px;
 }
 
 .left {
@@ -193,3 +199,46 @@ textarea {
   display: flex;
   padding: 20px 10px 15px 10px;
 }
+
+input[type=text],input[type=number],input[type=date] {
+  border: 1px solid #979797;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+  border-radius: 3px;
+  display: block;
+  text-align: left;
+  margin: 5px 10px 20px 0;
+  padding: 10px;
+  font-size: 14px;
+}
+
+input[type=text] {
+  width: 90%;
+}
+input[type=number] {
+  width: 30px;
+}
+
+input[type=radio] {
+  margin-bottom: 25px;
+}
+
+select {
+  background: linear-gradient(#F2F2F2, #D4D4D4);
+  margin: 5px 10px 20px 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  box-shadow: inset 0 2px 0 white;
+  border-radius: 3px;
+  border: 1px solid #979797;
+  padding: 10px;
+  font-size: 14px;
+  width: 90%;
+}
+
+.small-text {
+  height: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+
