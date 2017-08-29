@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RecentActivity from './recent-activity';
 import Triangle from '../symbols/Triangle.png';
+import { Link } from 'react-router-dom'
 
 class BuyerPage extends Component {
 	render () {
@@ -16,12 +17,12 @@ class BuyerPage extends Component {
 					</div>
 					<div className='right'>
 						<h3>#RD0956</h3>
-						<button>Add Order/Visit</button>
+						<Link to='/add-order-visit'><button>Add Order/Visit</button></Link>
 						<img src={Triangle} />
 					</div>
 				</div>
 				<div id='add-note'>
-					<button>Add Note</button>
+					<Link to='/add-note'><button>Add Note</button></Link>
 				</div>
 				<RecentActivity />
 			</div>

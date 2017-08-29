@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 
 class AddNote extends Component {
 	render () {
@@ -12,7 +13,7 @@ class AddNote extends Component {
 					</div>
 					<div className='buttons'>
 						<button type='submit'>OK</button>
-						<button>Cancel</button>
+						<Link to='/buyer'><button>Cancel</button></Link>
 					</div>
 				</form>
 			</div>
