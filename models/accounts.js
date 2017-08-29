@@ -1,6 +1,11 @@
 const db  = require('../db/config.js');
 
 const Account = {
+    getAllAcc: () =>{
+        return db.query(`
+            SELECT * FROM accounts
+        `);
+    },
     findById: id => {
         return db.one(`
             SELECT * FROM accounts
@@ -66,9 +71,11 @@ const Account = {
                 account.premises, account.status, account.id])
     },
     deleteAccount: id => {
-        db.one(`
+        return db.one(`
             DELETE FROM accounts
-            WHERE account_id = $1`,[id])
+            WHERE account_id = $1
+            RETURNING *`,[id])
     }
-
 }
+
+module.exports = Account;
