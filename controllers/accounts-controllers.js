@@ -49,6 +49,7 @@ const accountController = {
         }).catch(err=> console.log(err));
     },
     editAccount : (req,res) => {
+        console.log(req.params.id);
         Account.editAccount({
             account_num : req.body.acc_num,
             company : req.body.company,
