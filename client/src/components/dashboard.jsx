@@ -4,7 +4,7 @@ import RecentActivity from './recent-activity';
 class Dashboard extends Component {
 	render () {
 		return (
-			<div>
+			<main>
 				<h1>Dashboard</h1>
 				<div className='box'>
 					<div id='dummy-img'></div>
@@ -19,7 +19,7 @@ class Dashboard extends Component {
 					</ul>
 				</div>
 				<RecentActivity />
-			</div>
+			</main>
 		);
 	}
 }
