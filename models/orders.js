@@ -60,7 +60,6 @@ Orders.findByEmployeeId= employee_id => {
 
 
 
-// ------------------- Updaters --------------------------
 Orders.update = (options) => {
     return db.one(`
         UPDATE orders SET
@@ -78,9 +77,14 @@ Orders.update = (options) => {
         options.order_id])
 }
 
+Orders.delete = (order_id) => {
+    return db.none(`
+        DELETE FROM orders
+        WHERE id = $1
+    `, [order_id])
+}
 
 
 
 
-
-module.exports = User;
+module.exports = Orders;
