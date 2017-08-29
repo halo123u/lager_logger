@@ -22,11 +22,29 @@ Orders.create = order => {
 
 
 // ------------------- Finders --------------------------
+// ask about multi finders
 Orders.findAll= () => {
     return db.query(`
         SELECT * FROM orders
     `)
 },
+Orders.findBy= query => {
+    return db.query(`
+        SELECT * FROM orders
+        WHERE 
+        (refence_number=$1 OR
+        delivery_info=$2 OR
+        account_id=$3 OR
+        order_date=$4 OR
+        employee_id=$5)
+    `,[query.refence_number,
+        query.delivery_info,
+        query.account_id,
+        query.order_date,
+        query.employee_id])
+},
+
+
 Orders.findByReferenceNumber= refNum => {
     return db.query(`
         SELECT * FROM orders
