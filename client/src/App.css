@@ -69,13 +69,16 @@ p {
   padding: 10px;
 }
 
-.activity {
+.activity, .account {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 
+.account {
+  padding: 20px;
+}
 .content {
   margin: 10px;
 }
