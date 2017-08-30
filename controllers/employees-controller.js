@@ -29,10 +29,12 @@ create: function(req, res) {
     },
 
     update: function(req, res){
-        let employee= (req.body.password)?
+        const salt = bcrypt.genSaltSync();
+        const hash = (req.body.updatePassword) ? bcrypt.hashSync(req.body.newPassword, salt) : "";
+        let employee= (req.body.updatePassword==true)?
                 {
                     id: req.body.id,
-                    user_type: req.body.user_type,
+                    newPassword: hash,
                     updatePassword:true
                 }
             :
