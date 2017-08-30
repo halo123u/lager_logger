@@ -7,6 +7,7 @@ import {
 
 import Nav from './components/nav';
 import Dashboard from './components/dashboard';
+import AdminDashboard from './components/admin-dashboard';
 import BuyerPage from './components/buyer-page';
 import AddNote from './components/add-note';
 import AddOrderVisit from './components/add-order-visit';
@@ -39,12 +40,28 @@ class App extends Component {
        }
      }
 	handleLogin = (response) =>{
-		this.setState({
+		if (response.auth == false) {
+			console.log('wrong credentials');
+		}
+		else if (response.user.user_type === 'admin'&& response.auth == true) {
+			console.log('this is an admin');
+			this.setState({
 			auth: response.auth,
 			user: response.user,
-			redirect: true,
+			redirect: true,	
+			currentPage: '/admin-dash'
+		});
+		} else if (response.user.user_type === 'employee' && response.auth == true ) {
+			console.log('this is an employee');
+			this.setState({
+			auth: response.auth,
+			user: response.user,
+			redirect: true,	
 			currentPage: '/accounts'
 		});
+		}
+
+		
 	}
   render() {
     return (
@@ -56,7 +73,8 @@ class App extends Component {
 				{this.state.redirect ? (<Redirect to={`${this.state.currentPage}`}/>): null}
 				<Switch>
 	      <Route exact path='/' component={()=><Login handleLogin={this.handleLogin}/>}/>
-	      <Route path='/accounts' component={Accounts}/>
+		  <Route exact path='/admin-dash' component={()=> <AdminDashboard />} />
+	      <Route exact path='/accounts' component={Accounts}/>
 		  <Route exact path='/accounts/:id' component={BuyerPage}/>
 	      <Route path='/add-note' component={AddNote}/>
 	      <Route exact path='/events' component={Events}/>
