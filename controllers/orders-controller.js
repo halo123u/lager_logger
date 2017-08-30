@@ -15,7 +15,8 @@ ordersController.create = (req, res) => {
     
 
 ordersController.index = (req, res) => {
-    Orders.findAll(req.user.id)
+    // Orders.findAll(req.user.id)
+    Orders.findAll()
     .then(orders => {
         res.json(orders);
     })

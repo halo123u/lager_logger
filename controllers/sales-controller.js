@@ -15,8 +15,9 @@ salesController.create = (req, res) => {
     
 
 salesController.findAll = (req, res) => {
-    Sales.findAll(req.user.id)
-    .then(saless => {
+    // Sales.findAll(req.user.id)
+    Sales.findAll()
+    .then(sales => {
         res.json(sales);
     })
     .catch(err => {

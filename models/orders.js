@@ -22,12 +22,17 @@ Orders.create = order => {
 
 
 // ------------------- Finders --------------------------
-Orders.findAll= (employee_id) => {
+// Orders.findAll= (employee_id) => {
+//     return db.query(`
+//         SELECT * FROM orders
+//         WHERE employee_id = $1
+//     `, [employee_id])
+// }
+Orders.findAll= () => {
     return db.query(`
         SELECT * FROM orders
-        WHERE employee_id = $1
-    `, [employee_id])
-},
+    `)
+}
 
 
 // if query.selector is empty string, will just skip

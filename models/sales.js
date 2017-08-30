@@ -16,6 +16,12 @@ Sale.create = sale => {
         sale.date_info])
 }
 
+Sale.findAll = () => {
+    return db.query(`
+        SELECT * FROM sales
+    `)
+}
+
 Sale.findBySale_id = sale_id => {
     return db.query(`
         SELECT * FROM sales
