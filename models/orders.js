@@ -22,15 +22,16 @@ Orders.create = order => {
 
 
 // ------------------- Finders --------------------------
-Orders.findAll= () => {
+Orders.findAll= (employee_id) => {
     return db.query(`
         SELECT * FROM orders
-    `)
+        WHERE employee_id = $1
+    `, [employee_id])
 },
 
 
 // if query.selector is empty string, will just skip
-Orders.findBy= query => {
+Orders.findBy= (query, employee_id) => {
     return db.query(`
         SELECT * FROM orders
         WHERE 
@@ -38,46 +39,46 @@ Orders.findBy= query => {
         delivery_info=$2 OR
         account_id=$3 OR
         order_date=$4 OR
-        employee_id=$5)
+        employee_id=$5)  
     `,[query.refence_number,
         query.delivery_info,
         query.account_id,
         query.order_date,
-        query.employee_id])
+        employee_id,])
 },
 
 // think about and queries
 
-Orders.findByReferenceNumber= refNum => {
-    return db.query(`
-        SELECT * FROM orders
-        WHERE refence_number = $1
-    `,[refNum])
-},
-Orders.findByAccountId= account_id => {
-    return db.many(`
-        SELECT * FROM orders
-        WHERE account_id = $1
-    `,[account_id])
-},
-Orders.findByDeliveryInfo= delivery_info => {
-    return db.many(`
-        SELECT * FROM orders
-        WHERE delivery_info = $1
-    `,[delivery_info])
-},
-Orders.findByOrderDate= order_date => {
-    return db.many(`
-        SELECT * FROM orders
-        WHERE order_date = $1
-    `,[order_date])
-},
-Orders.findByEmployeeId= employee_id => {
-    return db.many(`
-        SELECT * FROM orders
-        WHERE employee_id = $1
-    `,[employee_id])
-},
+// Orders.findByReferenceNumber= refNum => {
+//     return db.query(`
+//         SELECT * FROM orders
+//         WHERE refence_number = $1
+//     `,[refNum])
+// },
+// Orders.findByAccountId= account_id => {
+//     return db.many(`
+//         SELECT * FROM orders
+//         WHERE account_id = $1
+//     `,[account_id])
+// },
+// Orders.findByDeliveryInfo= delivery_info => {
+//     return db.many(`
+//         SELECT * FROM orders
+//         WHERE delivery_info = $1
+//     `,[delivery_info])
+// },
+// Orders.findByOrderDate= order_date => {
+//     return db.many(`
+//         SELECT * FROM orders
+//         WHERE order_date = $1
+//     `,[order_date])
+// },
+// Orders.findByEmployeeId= employee_id => {
+//     return db.many(`
+//         SELECT * FROM orders
+//         WHERE employee_id = $1
+//     `,[employee_id])
+// },
 
 
 

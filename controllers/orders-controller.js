@@ -25,6 +25,15 @@ ordersController.index = (req, res) => {
     })
 }
     
+ordersController.findBy = (req, res) => {
+    Orders.findBy(query, req.user.id)
+    .then(orders => {
+        res.json(orders);
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
+}
 
 ordersController.findByid = (req, res) => {
     Orders.findById(req.params.id)
