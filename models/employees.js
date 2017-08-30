@@ -1,8 +1,8 @@
 const db = require("../db/config");
 
 const Employees = {
-      create:(employee)=> {
-      return  db.oneOrNone(`INSERT INTO
+    create:(employee)=> {
+    return  db.oneOrNone(`INSERT INTO
             employees(user_type, username, password, first_name, last_name, email, phone)
             values($1, $2, $3, $4, $5, $6, $7) RETURNING * `,
             [employee.user_type, employee.username, employee.password, employee.first_name,
