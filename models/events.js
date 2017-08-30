@@ -95,8 +95,8 @@ Events.findByZipcode = zipcode => {
     `, [zipcode])
 }
 
-Events.update = (options) => {
-    return db.one(`
+Events.update = (options, events_id) => {
+    return db.none(`
     UPDATE events SET 
     event_name = $1,
     account_id = $2,
@@ -114,7 +114,8 @@ Events.update = (options) => {
         options.state,
         options.city,
         options.neighborhood,
-        options.zipcode])
+        options.zipcode,
+        events_id])
 }
 
 Events.delete = (event_id) => {

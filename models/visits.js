@@ -35,7 +35,7 @@ Visits.findByEmployeeId = employee_id => {
     return db.query(`
     SELECT * FROM visits
     WHERE employee_id = $1
-    `, [account_id])
+    `, [employee_id])
 }
 
 module.exports = Visits;
