@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const User = require('../../models/user');
+const Employees = require('../../models/employees');
 
 function comparePass(userPassword, databasePassword) {
     return bcrypt.compareSync(userPassword, databasePassword);
