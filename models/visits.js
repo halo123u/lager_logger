@@ -3,6 +3,7 @@ const db = require('../db/config');
 const Visits = {}
 
 Visits.create = visit => {
+    console.log(visit)
     return db.one(`
     INSERT INTO visits
     (date_info,
@@ -10,11 +11,12 @@ Visits.create = visit => {
     employee_id)
     VALUES
     ($1, $2, $3)
+    RETURNING *
     `, [visit.date_info,
-        visits.account_id,
-        loyee_id])
+        visit.account_id,
+        visit.employee_id])
 }
-    
+
 Visits.findByMoment = moments => {
     return db.query(`
     SELECT * FROM visits

@@ -2,6 +2,7 @@ const Visits = require('../models/visits');
 
 const visitsController = {
     addVisit: (req, res) => {
+        console.log(req.body)
         Visits.create ({
             date_info: req.body.date_info,
             account_id:req.body.account_id,
