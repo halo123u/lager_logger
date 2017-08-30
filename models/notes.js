@@ -21,11 +21,11 @@ const notes={
         return db.manyOrNone(`SELECT n.*, concat(e.first_name , ' ', e.last_name) as employee_name FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id WHERE note_id = $1`, [note_id])
     },
 
-    findByType : (type) => {
+    findAllByType : (type) => {
         return db.query(`SELECT n.*, concat(e.first_name , ' ', e.last_name) as employee_name FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id WHERE note_type = $1`, [type])
     },
 
-    findByRelationship : (note ) => {
+    findAllByRelationship : (note) => {
         return db.query(`SELECT n.*, concat(e.first_name , ' ', e.last_name) as employee_name FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id WHERE note_type= $1 and relationship_id = $2 `, [note.note_type, note.relationship_id])
     },
 

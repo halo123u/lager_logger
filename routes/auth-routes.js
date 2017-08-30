@@ -2,9 +2,9 @@ const express = require('express');
 const authRouter = express.Router();
 const passport = require('../services/auth/local');
 const authHelpers = require('../services/auth/auth-helpers');
-const usersController = require('../controllers/users-controller');
+const employeesController = require('../Controllers/employees-controller');
 
-authRouter.post('/register', usersController.create);
+authRouter.post('/register', employeesController.create);
 
 authRouter.post('/login', passport.authenticate('local', {
     successRedirect: '/auth/success',
@@ -15,8 +15,8 @@ authRouter.post('/login', passport.authenticate('local', {
 authRouter.get('/success', (req, res) => {
     res.json({
        auth: true,
-       message: 'ok',
-       user: req.user, 
+       message: 'Done',
+       user: req.user,
     });
 });
 
