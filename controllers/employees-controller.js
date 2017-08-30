@@ -6,6 +6,7 @@ const employeesController = {
 create: function(req, res) {
     const salt = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(req.body.password, salt);
+    const hashKey = bcrypt.hashSync(req.body.key, salt);
     Employees.create({
         user_type: req.body.user_type,
         username: req.body.username,
@@ -14,6 +15,7 @@ create: function(req, res) {
         password: hash,
         email: req.body.email,
         phone: req.body.phone,
+        key: req.body.hashKey,
     }).then(employee => {
         req.login(employee, (err) => {
             if (err) return next(err);
