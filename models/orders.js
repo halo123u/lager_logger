@@ -40,11 +40,11 @@ Orders.findBy= (query, employee_id) => {
         account_id=$3 OR
         order_date=$4 OR
         employee_id=$5)  
-    `,[query.refence_number,
-        query.delivery_info,
-        query.account_id,
-        query.order_date,
-        employee_id,])
+    `,[query.refence_number || '',
+        query.delivery_info || '',
+        query.account_id || '',
+        query.order_date || '',
+        employee_id || ''])
 },
 
 // think about and queries

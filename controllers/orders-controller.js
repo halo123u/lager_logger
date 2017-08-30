@@ -16,8 +16,8 @@ ordersController.create = (req, res) => {
 
 ordersController.index = (req, res) => {
     Orders.findAll(req.user.id)
-    .then(orderss => {
-        res.json(orderss);
+    .then(orders => {
+        res.json(orders);
     })
     .catch(err => {
         console.log(err);
@@ -26,7 +26,7 @@ ordersController.index = (req, res) => {
 }
     
 ordersController.findBy = (req, res) => {
-    Orders.findBy(query, req.user.id)
+    Orders.findBy(req.query, req.user.id)
     .then(orders => {
         res.json(orders);
     })
@@ -49,7 +49,7 @@ ordersController.findByid = (req, res) => {
 ordersController.update = (req, res) => {
     console.log(req.body)
     console.log(req.params.id);
-    Orders.update(req.body.orders, req.params.id)
+    Orders.update(req.body.orders)
     .then(orders => {
         
     })
