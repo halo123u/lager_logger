@@ -16,7 +16,12 @@ Sale.create = sale => {
         sale.date_info])
 }
 
-
+Sale.findBySale_id = sale_id => {
+    return db.query(`
+        SELECT * FROM sales
+        WHERE sale_id = $1
+    `,[sale_id])
+}
 Sale.findByOrderId = order_id => {
     return db.query(`
         SELECT * FROM sales
@@ -34,5 +39,16 @@ Sale.findByMoment = moment => {
         SELECT * FROM sales
         WHERE date_info = $1
     `,[moment])
+}
+
+
+
+
+Sale.delete = (sales) => {
+	return db.none(`
+		DELETE FROM Sales
+		WHERE sale_id=$1
+	`,[sales.sale_id]
+	);
 }
 module.exports = Sale;
