@@ -32,6 +32,13 @@ Events.create = events => {
         events.zipcode])
 }
 
+Events.findById = id => {
+    return db.one (`
+    SELECT * FROM events
+    WHERE event_id = $1
+    `, [id]);
+}
+
 Events.findByEventName = event_name => {
     return db.query(`
     SELECT * FROM events
