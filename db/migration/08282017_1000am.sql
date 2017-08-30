@@ -1,6 +1,6 @@
 \c lagger_dev
 
-ALTER TABLE IF EXISTS messages
+ALTER TABLE IF EXISTS notes
 RENAME time_stamp  TO date_info;
 
 

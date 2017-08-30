@@ -1,7 +1,7 @@
 const Notes = require("../models/notes")
 
 const notesController= {
-    create :function(req,res)=>{
+    create :function(req,res){
         Notes.create({
             relationship_id:req.body.relationship_id,
             note_type:req.body.note_type,
@@ -9,86 +9,85 @@ const notesController= {
             date_info:req.body.date_info,
             employee_id:req.body.employee_id,
         }).then((note)=>{
-            message:"Done",
-            note:note,
-        }).catch({
+            res.json({
+                message: "Done",
+                note: note
+            })
+        }).catch((err)=>{
             console.log(err);
             res.status(500).json({error: err});
         })
     },
 
-    update :function(req,res)=>{
+    update:function(req,res){
         Notes.update({
-            note_id:req.body.note_id,
+            note_id:req.params.note_id,
             content:req.body.content,
             date_info:req.body.date_info,
             employee_id:req.body.employee_id,
-        }).then((note)=>{
-            message:"Done",
-            note:note,
-        }).catch({
+        }).then(()=>{
+            res.json({
+                message: "Done",
+            })
+        }).catch((err)=>{
             console.log(err);
             res.status(500).json({error: err});
         })
     },
 
-    findById:function(req,res)=>{
+    findById:function(req,res){
         Notes.findById(req.params.note_id)
         .then(note=>{
-            message:"Done",
-            note: note,
-        }).catch({
+            res.json({
+                message:"Done",
+                note: note
+            })
+        }).catch((err)=>{
             console.log(err);
             res.status(500).json({error: err});
         })
-
     },
 
-    findByType:function(req,res)=>{
-        Notes.findByType(req.body.note_id)
+    findAllByType: function(req,res){
+        Notes.findAllByType((req.params.note_type).toUpperCase())
         .then((note)=>{
-            message:"Done",
-            note: note,
-        }).catch({
+            res.json({
+                message:"Done",
+                note: note
+            })
+        }).catch((err)=>{
             console.log(err);
             res.status(500).json({error: err});
         })
     },
 
-    findByType:function(req,res)=>{
-        Notes.findByType(req.body.note_type)
-        .then((note)=>{
-            message:"Done",
-            note: note,
-        }).catch({
-            console.log(err);
-            res.status(500).json({error: err});
-        })
-    },
 
-    findByrelationship:function(req,res)=>{
-        Notes.findByrelationship({
-            note_type:req.body.note_type,
+    findAllByRelationship: function(req,res){
+        Notes.findAllByRelationship({
+            note_type:(req.params.note_type).toUpperCase(),
             relationship_id:req.body.relationship_id,
-        }).then((not)e=>{
-            message:"Done",
-            note: note,
-        }).catch({
+        }).then((note)=>{
+            res.json({
+                message:"Done",
+                note: note,
+            })
+        }).catch((err)=>{
             console.log(err);
             res.status(500).json({error: err});
         })
     },
 
-    delete :function(req,res)=>{
+    delete: function(req,res){
         Notes.delete(req.body.note_id)
         .then(()=>{
-            message:done,
-        }).catch({
+            res.json({
+                message:"Done",
+            })
+        }).catch((err)=>{
             console.log(err);
             res.status(500).json({error: err});
         })
     }
-
 }
 
 
