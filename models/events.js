@@ -35,7 +35,7 @@ Events.create = events => {
 Events.findById = id => {
     return db.one (`
     SELECT * FROM events
-    WHERE event_id = $1
+    WHERE event_id = $1 
     `, [id]);
 }
 
