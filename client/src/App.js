@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+
+import Nav from './components/nav';
+import Dashboard from './components/dashboard';
+import BuyerPage from './components/buyer-page';
+import AddNote from './components/add-note';
+import AddOrderVisit from './components/add-order-visit';
+import AddEvent from './components/add-event';
+import AddBuyer from './components/add-buyer';
+import Accounts from './components/accounts'
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+    	<Router>
+	      <div className="App">
+	      <Nav/>
+	      <Route exact path='/' component={Dashboard}/>
+	      <Route path='/accounts' component={Accounts}/>
+	      <Route path='/add-note' component={AddNote}/>
+	      <Route path='/add-event' component={AddEvent}/>
+	      <Route path='/add-account' component={AddBuyer}/>
+	      <Route path='/buyer' component={BuyerPage}/>
+	      <Route path='/add-order-visit' component={AddOrderVisit}/>
+
+	      </div>
+	     </Router>
     );
   }
 }

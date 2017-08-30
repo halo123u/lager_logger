@@ -1,6 +1,11 @@
 const db  = require('../db/config.js');
 
 const Account = {
+    getAllAcc: () =>{
+        return db.query(`
+            SELECT * FROM accounts
+        `);
+    },
     findById: id => {
         return db.one(`
             SELECT * FROM accounts
@@ -11,36 +16,55 @@ const Account = {
         return db.one(`
             SELECT * FROM accounts
             WHERE account_num = $1`
-            ,[num]);
+            ,[number]);
     },
     findByCompany: company =>{
         return db.one(`
             SELECT * FROM accounts
-            WHERE company = $1)`
+            WHERE company = $1`
             ,[company]);
     },
 
     createNewAcc: account =>{
+        console.log(account);
         return db.one(`
             INSERT INTO accounts
-            (account_num, company,
-            buyer, street, state,
-            city,neighborhood,
-            zipcode, phone, email
-            delivery_day, delivery_time,
-            premises, status)
+            (
+                account_num, 
+                company,
+                buyer, 
+                street, 
+                state,
+                city,
+                neighborhood,
+                zipcode,
+                phone,
+                email,
+                delivery_day,
+                delivery_time,
+                premises,
+                status)
             VALUES
-            ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10
+            ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,
             $11,$12,$13,$14)
             RETURNING *`,
-            [account.account_num, account.company,
-                account.buyer, account.street, account.state,
-                account.city,account.neighborhood,
-                account.zipcode, account.phone, account.email,
-                account.delivery_day, account.delivery_time,
-                account.premises, account.status]);
+            [
+                account.account_num,
+                account.company,
+                account.buyer, 
+                account.street, 
+                account.state,
+                account.city,
+                account.neighborhood,
+                account.zipcode, 
+                account.phone, 
+                account.email,
+                account.delivery_day, 
+                account.delivery_time,
+                account.premises, 
+                account.status]);
     },
-    editAccount: account=>{
+    editAccount: (account,id)=>{
         return db.one(`UPDATE accounts SET
             account_num = $1,
             company = $2,
@@ -53,9 +77,9 @@ const Account = {
             phone = $9,
             email = $10,
             delivery_day = $11,
-            delivery_time $12,
+            delivery_time = $12,
             premises = $13,
-            status = $14)
+            status = $14
             WHERE account_id = $15
             RETURNING *`,
             [account.account_num, account.company,
@@ -63,12 +87,14 @@ const Account = {
                 account.city,account.neighborhood,
                 account.zipcode, account.phone, account.email,
                 account.delivery_day, account.delivery_time,
-                account.premises, account.status, account.id])
+                account.premises, account.status, id])
     },
     deleteAccount: id => {
-        db.one(`
+        return db.one(`
             DELETE FROM accounts
-            WHERE account_id = $1`,[id])
+            WHERE account_id = $1
+            RETURNING *`,[id])
     }
-
 }
+
+module.exports = Account;
