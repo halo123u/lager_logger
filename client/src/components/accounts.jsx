@@ -25,11 +25,13 @@ class Accounts extends Component {
 	}
 
 	renderAccount(account) {
-		return(
-			<div className='box account'>
-				<h3>{account.buyer}</h3>
-				<h3>#{account.account_num}</h3>
-			</div>
+		return( 
+			<Link to={`/accounts/${account.account_id}`}>
+				<div className='box account'>
+					<h3>{account.company}</h3>
+					<h3>#{account.account_num}</h3>
+				</div>
+			</Link>
 		)	
 	}
 
