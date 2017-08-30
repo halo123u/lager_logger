@@ -11,10 +11,8 @@ init();
 
 passport.use(
     new LocalStrategy(options, (username, password, done) => {
-        console.log('LocalStrategy')
         Employee.findByUserName(username)
             .then(employee => {
-                console.log(employee);
                 if (!employee) {
                     return done(null, false);
                 }

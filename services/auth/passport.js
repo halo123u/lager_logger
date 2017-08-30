@@ -3,11 +3,11 @@ const Employee = require('../../models/employees');
 
 module.exports = () => {
     passport.serializeUser((employee, done) => {
-        done(null, employee.employeename)
+        done(null, employee.username)
     })
 
-    passport.deserializeUser((employeename, done) => {
-        Employee.findByEmployeeName(employeename)
+    passport.deserializeUser((username, done) => {
+        Employee.findByUserName(username)
             .then(employee => {
                 done(null, employee);
             }).catch(err => {
@@ -15,24 +15,4 @@ module.exports = () => {
             });
     });
 };
-
-
-
-// const passport = require('passport');
-// const User = require('../../models/user');
-
-// module.exports = () => {
-//   passport.serializeUser((user, done) => {
-//     done(null, user.username);
-//   });
-
-//   passport.deserializeUser((username, done) => {
-//     User.findByUserName(username)
-//       .then(user => {
-//         done(null, user);
-//       }).catch(err => {
-//         done(err, null);
-//       });
-//   });
-// };
 

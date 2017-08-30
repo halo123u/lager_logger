@@ -6,27 +6,53 @@ const notes={
                     VALUES ($1, $2, $3, $4, $5) RETURNING * `,
                     [note.relationship_id, note.note_type, note.content, note.date_info, note.employee_id]
                 )
-    }
+    },
 
     update : (note) => {
-        return db.one(`UPDATE notes SET
-                    relationship_id = $1, note_type = $2, content = $3, date_info = $4, employee_id =$5
-                    WHERE note_id=$6`,
-                    [note.relationship_id, note.note_type, note.content, note.date_info,
-                    note.employee_id, note.note_id]
+        return db.none(`UPDATE notes SET
+                     content = $1, date_info = $2, employee_id =$3
+                      WHERE note_id=$4`,
+                    [ note.content, note.date_info, note.employee_id, note.note_id]
                 )
-    }
+    },
 
     findById : (note_id) => {
         return db.manyOrNone(`SELECT n.*, concat(e.first_name , ' ', e.last_name) as employee_name FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id WHERE note_id = $1`, [note_id])
     },
 
-    findAllByType : (type) => {
-        return db.query(`SELECT n.*, concat(e.first_name , ' ', e.last_name) as employee_name FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id WHERE note_type = $1`, [type])
+    findAllByType : (note_type) => {
+        return db.query(`SELECT n.*, concat(e.first_name , ' ', e.last_name) as employee_name FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id WHERE note_type = $1`, [note_type])
     },
 
     findAllByRelationship : (note) => {
-        return db.query(`SELECT n.*, concat(e.first_name , ' ', e.last_name) as employee_name FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id WHERE note_type= $1 and relationship_id = $2 `, [note.note_type, note.relationship_id])
+        var join="";
+        var columnSelect="";
+        switch(note.note_type) {
+            case "EMP":
+                join=" INNER JOIN employees e2 on n.relationship_id= e2.emp_id    "
+                columnSelect= " concat(e2.first_name , ' ', e2.last_name) as receiver"
+                break;
+
+            case "ORD":
+                join=" INNER JOIN orders    o on n.relationship_id= o.order_id   "
+                columnSelect= " refence_number as receiver"
+                break;
+
+            case "SAL":
+                join=" INNER JOIN sales    s on n.relationship_id= s.sales_id   "
+                columnSelect= " refence_number as receiver"
+                break;
+
+            case "ACC":
+                join=" INNER JOIN accounts  a on n.relationship_id= a.account_id "
+                columnSelect= " company as receiver"
+                break;
+
+            default:
+                join =""
+                columnSelect=""
+        }
+        return db.query(`SELECT n.*, concat(e.first_name , ' ', e.last_name) as employee_name, ${columnSelect} FROM notes n ${join} LEFT JOIN  employees e on n.employee_id = e.emp_id WHERE note_type= $1 and relationship_id = $2 `, [note.note_type, note.relationship_id])
     },
 
     delete : (note_id) => {

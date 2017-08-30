@@ -16,7 +16,7 @@ create: function(req, res) {
         phone: req.body.phone,
     }).then(employee => {
         req.login(employee, (err) => {
-            //if (err) return next(err);
+            if (err) return next(err);
                 res.json({
                 employee: employee,
                 auth: true,
@@ -29,10 +29,12 @@ create: function(req, res) {
     },
 
     update: function(req, res){
-        let employee= (req.body.password)?
+        const salt = bcrypt.genSaltSync();
+        const hash = (req.body.updatePassword) ? bcrypt.hashSync(req.body.newPassword, salt) : "";
+        let employee= (req.body.updatePassword==true)?
                 {
                     id: req.body.id,
-                    user_type: req.body.user_type,
+                    newPassword: hash,
                     updatePassword:true
                 }
             :

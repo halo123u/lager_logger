@@ -4,8 +4,6 @@ const passport = require('../services/auth/local');
 const authHelpers = require('../services/auth/auth-helpers');
 const employeesController = require('../Controllers/employees-controller');
 
-authRouter.post('/register', employeesController.create);
-
 authRouter.post('/login', passport.authenticate('local', {
     successRedirect: '/auth/success',
     failureRedirect: '/auth/failure',
