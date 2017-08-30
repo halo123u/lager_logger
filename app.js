@@ -38,6 +38,9 @@ app.get('/',(req,res)=>{
 const authRoutes = require('./routes/auth-routes');
 app.use('/auth', authRoutes);
 
+const employeeRoutes = require('./routes/employee-routes');
+app.use('/employees', employeeRoutes);
+
 const accRoutes = require('./routes/account-routes');
 app.use('/accounts/', accRoutes);
 

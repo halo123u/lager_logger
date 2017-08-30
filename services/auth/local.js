@@ -11,16 +11,18 @@ init();
 
 passport.use(
     new LocalStrategy(options, (username, password, done) => {
-        console.log('LocalStrategy')
         Employee.findByUserName(username)
             .then(employee => {
-                console.log(employee);
                 if (!employee) {
                     return done(null, false);
                 }
                 if(!authHelpers.comparePass(password, employee.password)) {
+
+                    console.log("auth-helpers3",employee);
+
                     return done(null, false)
                 } else {
+                    console.log("auth-helpers4",employee);
                     return done(null, employee);
                 }
             }).catch(err => {

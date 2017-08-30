@@ -16,7 +16,7 @@ create: function(req, res) {
         phone: req.body.phone,
     }).then(employee => {
         req.login(employee, (err) => {
-            //if (err) return next(err);
+            if (err) return next(err);
                 res.json({
                 employee: employee,
                 auth: true,

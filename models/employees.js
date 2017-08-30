@@ -27,17 +27,17 @@ const Employees = {
     },
 
     findAll: function(){
-        return db.query(`SELECT *, concat(firstname , ' ', lastname) as fullname
+        return db.query(`SELECT *, concat(first_name , ' ', last_name) as fullname
                         FROM employees`)
     },
 
     findByUserName : (userName) => {
-        return db.manyOrNone(`SELECT *, concat(firstname , ' ', lastname) as fullname
-                            FROM employees WHERE username = $1`, [userName]);
+        return db.one(`SELECT *, concat(first_name , ' ', last_name) as fullname
+                            FROM employees WHERE username = $1 fetch first 1 rows only`, [userName]);
     },
 
     findByEmployeeId : (id) => {
-        return db.one(`SELECT *, concat(firstname , ' ', lastname) as fullname
+        return db.one(`SELECT *, concat(first_name , ' ', last_name) as fullname
                      FROM employees  WHERE emp_id = $1`, [id]);
     }
 }
