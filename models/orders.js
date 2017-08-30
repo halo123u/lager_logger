@@ -45,7 +45,9 @@ Orders.findBy= (query, employee_id) => {
         query.account_id || '',
         query.order_date || '',
         employee_id || ''])
-},
+}
+
+
 
 // think about and queries
 

@@ -1,5 +1,5 @@
 const Orders = require('../models/orders.js');
-ordersController = {}
+const ordersController = {}
     
 
 ordersController.create = (req, res) => {
@@ -35,7 +35,7 @@ ordersController.findBy = (req, res) => {
     })
 }
 
-ordersController.findByid = (req, res) => {
+ordersController.getById = (req, res) => {
     Orders.findById(req.params.id)
     .then(orders => {
         res.json(orders);

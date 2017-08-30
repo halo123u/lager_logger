@@ -42,8 +42,6 @@ Sale.findByMoment = moment => {
 }
 
 
-
-
 Sale.delete = (sales) => {
 	return db.none(`
 		DELETE FROM Sales
