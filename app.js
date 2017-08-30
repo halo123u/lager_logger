@@ -53,6 +53,9 @@ const salesRoutes = require('./routes/sales-routes');
 app.use('/sales/', salesRoutes);
 
 
+const visitsRoutes = require('./routes/visit-routes');
+app.use('/visits/', visitsRoutes);
+
 app.get('*',(req,res)=>{
     res.status(400).json({
         message: "Not found!",
