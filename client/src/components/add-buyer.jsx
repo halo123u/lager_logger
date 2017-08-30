@@ -58,7 +58,7 @@ class AddBuyer extends Component {
 
 	render () {
 		return (
-			<div>
+			<div id='add-account'>
 				<h1>Add Account</h1>
 				<form onSubmit={this.handleSubmit}>
 					<div className='box padded'>
@@ -69,7 +69,7 @@ class AddBuyer extends Component {
 								name='account_num' 
 								value={this.state.account_num} 
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='666666' 
 							required />
 						</label>
 
@@ -80,7 +80,7 @@ class AddBuyer extends Component {
 								name='company'
 								value={this.state.company}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='Apple' 
 								required />
 						</label>
 
@@ -91,7 +91,7 @@ class AddBuyer extends Component {
 								name='buyer'
 								value={this.state.buyer} 
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='Apple' 
 							required />
 						</label>
 					</div>
@@ -115,7 +115,7 @@ class AddBuyer extends Component {
 								name='neighborhood' 
 								value={this.state.neighborhood}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' />
+								placeholder='Flatiron' />
 						</label>
 
 						<label>
@@ -125,7 +125,7 @@ class AddBuyer extends Component {
 								name='city' 
 								value={this.state.city}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='New York' 
 							required />
 						</label>
 
@@ -136,7 +136,7 @@ class AddBuyer extends Component {
 								name='state' 
 								value={this.state.state}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='NY' 
 							required />
 						</label>
 
@@ -145,7 +145,7 @@ class AddBuyer extends Component {
 							<input 
 								type='number' 
 								name='zipcode' 
-								placeholder='placeholder' 
+								placeholder='12345' 
 								value={this.state.zipcode}
 								onChange={this.handleInputChange}
 							required />
@@ -158,7 +158,7 @@ class AddBuyer extends Component {
 								name='phone' 
 								value={this.state.phone}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='555-678-910' 
 							required />
 						</label>
 
@@ -169,7 +169,7 @@ class AddBuyer extends Component {
 								name='email' 
 								value={this.state.email}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='email@gmail.com' 
 							required />
 						</label>
 					</div>

@@ -12,7 +12,8 @@ import AddNote from './components/add-note';
 import AddOrderVisit from './components/add-order-visit';
 import AddEvent from './components/add-event';
 import AddBuyer from './components/add-buyer';
-import Accounts from './components/accounts'
+import Accounts from './components/accounts';
+import Events from './components/events';
 
 
 class App extends Component {
@@ -24,6 +25,7 @@ class App extends Component {
 	      <Route exact path='/' component={Dashboard}/>
 	      <Route path='/accounts' component={Accounts}/>
 	      <Route path='/add-note' component={AddNote}/>
+	      <Route path='/events' component={Events}/>
 	      <Route path='/add-event' component={AddEvent}/>
 	      <Route path='/add-account' component={AddBuyer}/>
 	      <Route path='/buyer' component={BuyerPage}/>
