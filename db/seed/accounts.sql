@@ -4,5 +4,5 @@ INSERT INTO accounts (
     delivery_day, delivery_time, premises, status
 )
 VALUES
-('A1234','BAR','Bar Person','10st','NY','New York', 'LES', 10004,'1234567777',
+('A1234','BAR','Bar Person','10st','NY','New York', 'LES', 10004,'1234567777', 'customer@example.com',
 'Friday', '10:00AM', true, 'new account');
