@@ -2,7 +2,7 @@
 CREATE TABLE IF NOT EXISTS employees(
     emp_id SERIAL PRIMARY KEY UNIQUE,
     user_type VARCHAR(15),
-    username VARCHAR(25),
+    username VARCHAR(25) UNIQUE,
     pass TEXT,
     first_name VARCHAR(30),
     last_name VARCHAR(30),
