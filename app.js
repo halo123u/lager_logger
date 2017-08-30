@@ -47,7 +47,13 @@ app.use("/accounts/", accRoutes);
 const notesRoutes = require("./routes/notes-routes");
 app.use("/notes/", notesRoutes);
 
-app.get("*",(req,res)=>{
+const ordersRoutes = require('./routes/orders-routes');
+app.use('/orders/', ordersRoutes);
+const salesRoutes = require('./routes/sales-routes');
+app.use('/sales/', salesRoutes);
+
+
+app.get('*',(req,res)=>{
     res.status(400).json({
         message: "Not found!",
       });
