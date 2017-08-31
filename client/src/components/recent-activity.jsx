@@ -3,6 +3,7 @@ import Note from '../symbols/note_icon.svg';
 import Visit from '../symbols/visit_icon.svg';
 import Order from '../symbols/order_icon.svg';
 import axios from 'axios';
+import moment from 'moment';
 
 class RecentActivity extends Component {
 	constructor() {
@@ -14,8 +15,10 @@ class RecentActivity extends Component {
 			visitsLoaded: false,
 			notes: null,
 			notesLoaded: false,
+			allActivity: null,
 		}
 		this.renderActivity = this.renderActivity.bind(this);
+		this.sortByDate = this.sortByDate.bind(this);
 	}
 
 	componentDidMount() {
@@ -43,6 +46,21 @@ class RecentActivity extends Component {
 				notes: res.data.map(note => {note.icon = Note; return note}),
 				notesLoaded: true,
 			})
+			this.sortByDate();
+		});
+	}
+
+	sortByDate() {
+		console.log('sortByDate')
+		const all = this.state.orders.concat(this.state.notes).concat(this.state.visits);
+		all.sort(function(x,y) {
+			const xdate = x.date_info || x.order_date;
+			const ydate = y.date_info || y.order_date;
+			return moment(ydate) - moment(xdate);
+		}); 
+		this.setState({
+			allActivity: all,
+			allDataLoaded: true,
 		})
 	}
 
@@ -66,16 +84,7 @@ class RecentActivity extends Component {
 					<h5>Recent Activity</h5>
 					<a>View All</a>
 			</div>
-				<div className='box activity'>
-					<img src={Note} className='icon'/>
-					<div className='content'>	
-						<h4>Drexlers</h4>
-						<p>Viral lo-fi pickled pok pok mustache actually. </p>
-					</div>
-				</div>
-				{this.state.ordersLoaded ? this.state.orders.map(this.renderActivity) : ''}
-				{this.state.visitsLoaded ? this.state.visits.map(this.renderActivity) : ''}
-				{this.state.notesLoaded ? this.state.notes.map(this.renderActivity) : ''} 
+				{this.state.allDataLoaded ? this.state.allActivity.map(this.renderActivity) : ''}
 			</div>
 		)
 	}
