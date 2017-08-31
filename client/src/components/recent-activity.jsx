@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Note from '../symbols/Note-Icon.png';
-import Visit from '../symbols/Visit-Icon.png';
-import Order from '../symbols/Order-Icon.png';
+import Note from '../symbols/note_icon.svg';
+import Visit from '../symbols/visit_icon.svg';
+import Order from '../symbols/order_icon.svg';
 
 class RecentActivity extends Component {
 	render() {

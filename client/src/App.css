@@ -128,10 +128,14 @@ li span {
   height: 20px;
 }
 
-#recent-activity a {
+#recent-activity a, .right a {
   font-size: 16px;
   text-decoration: underline;
   color: #005EFF;
+}
+
+.right a {
+  margin-right: 25px;
 }
 
 #accounts button, #events button {
@@ -183,7 +187,10 @@ textarea {
   padding: 20px 10px;
   font-size: 14px;
 }
-
+a {
+  text-decoration: none;
+  color: black;
+}
 
 .right {
   display: flex;

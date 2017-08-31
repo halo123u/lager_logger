@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+//import browserHistory from 'react-router-dom'
 
 class AddBuyer extends Component {
 	constructor() {
@@ -53,10 +54,12 @@ class AddBuyer extends Component {
 		})
 		.then(res => {
 			console.log(res);
+			this.props.history.goBack()
 		}).catch(err => console.log(err));
 	}
 
 	render () {
+		//console.log(this.props)
 		return (
 			<div id='add-account'>
 				<h1>Add Account</h1>
@@ -65,7 +68,7 @@ class AddBuyer extends Component {
 						<label>
 							Account Number
 							<input 
-								type='number' 
+								type='text' 
 								name='account_num' 
 								value={this.state.account_num} 
 								onChange={this.handleInputChange}
