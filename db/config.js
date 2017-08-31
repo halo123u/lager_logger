@@ -12,6 +12,7 @@ function setDatabase() {
             database: 'lagger_dev',
             port: 5432,
             host: 'localhost',
+            user: 'postgres',
         })
     } else {
         return pgp(process.env.DATABASE_URL);
