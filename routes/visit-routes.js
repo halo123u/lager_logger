@@ -7,4 +7,6 @@ visit.get('/date/:date_info', visitsController.getByDate);
 visit.get('/acc/:account_id', visitsController.getByAccount);
 visit.get('/emp/:employee_id', visitsController.getByEmployee);
 
+visit.get('/comps/', visitsController.getWithCompany);
+
 module.exports = visit

@@ -10,4 +10,6 @@ notesRoutes.put("/:note_id", notesController.update);
 notesRoutes.get("/:note_id", notesController.findById);
 notesRoutes.delete("/:note_id", notesController.delete);
 
+notesRoutes.get('/comps/accounts', notesController.getWithCompany);
+
 module.exports = notesRoutes;
