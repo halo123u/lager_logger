@@ -1,4 +1,3 @@
-\c lagger_dev
 INSERT INTO accounts (
     account_num,company,buyer,street,state,
     city,neighborhood,zipcode, phone, email,
@@ -10,7 +9,7 @@ VALUES
 
 
 INSERT INTO employees (
-    user_type,username,password,
+    user_type,username,pass,
     first_name, last_name,email,phone)
 VALUES
 ('admin','username', '$2y$10$qll67Fnu4VGBS0kJeo6mleb0rovIOYsq6rhMzbz/qOUp9/gSK/PRm', 'Oswaldo', 'Almazo', 'example@example.com', '2222222222'),
@@ -28,9 +27,8 @@ order_date,
 employee_id
 )
 VALUES
-(12973, 'Not sure', 7, '2017-08-30T13:17:53-04:00', 1),
-(12977, 'Not sure', 12, '2017-09-30T13:17:53-04:00', 1),
-(129712, 'Not sure', 3, '2017-08-4T13:17:53-04:00', 1);
+(12973, 'Not sure', 1, '2017-08-30T13:17:53-04:00', 1);
+
 
 
 INSERT INTO sales(
@@ -39,9 +37,7 @@ cases,
 date_info
 )
 VALUES 
-(1,24,'2017-08-30T13:17:53-04:00'),
-(2,100,'2017-09-30T13:17:53-04:00'),
-(3,24,'2017-08-4T13:17:53-04:00');
+(6,24,'2017-08-30T13:17:53-04:00');
 
 
 

@@ -18,7 +18,7 @@ Orders.create = order => {
         order.account_id,
         order.order_date,
         order.employee_id]);
-},
+}
 
 
 // ------------------- Finders --------------------------
