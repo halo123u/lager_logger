@@ -10,15 +10,18 @@ const eventsController = {
         })
     },
     addEvent: (req, res) => {
+        console.log(req.body);
         Events.create({
             event_name: req.body.event_name,
             account_id: req.body.account_id,
             employee_id: req.body.employee_id,
-            street: req.body.street,
+            date_info: req.body.date_info,
+            time_info: req.body.time_info,
             state: req.body.state,
-            city: req.body.city,
-            neighborhood: req.body.neighborhood,
-            zipcode: req.body.zipcode
+            street: req.body.street,
+            city:req.body.city,
+            zipcode:req.body.zipcode,
+            additional_info:req.body.additional_info
         }).then(data => {
             console.log(data);
             res.json(data);
@@ -66,12 +69,6 @@ const eventsController = {
             res.json(data);
         }).catch(err => console.log(err));
     },
-    getByNeighborhood: (req, res) => {
-        Events.findByNeighborhood(req.params.neighborhood).then(data => {
-            console.log(data);
-            res.json(data);
-        }).catch(err => console.log(err));
-    },
     getByZip: (req, res) => {
         Events.findByZipcode(req.params.zip).then(data => {
             console.log(data);
@@ -84,11 +81,13 @@ const eventsController = {
             event_name: req.body.event_name,
             account_id: req.body.account_id,
             employee_id: req.body.employee_id,
-            street: req.body.street,
+            date_info: req.body.date_info,
+            time_info: req.body.time_info,
             state: req.body.state,
-            city: req.body.city,
-            neighborhood: req.body.neighborhood,
-            zipcode: req.body.zipcode
+            street: req.body.street,
+            city:req.body.city,
+            zipcode:req.body.zipcode,
+            additional_info:req.body.additional_info
         }, req.params.id).then(data => {
             console.log(data);
             res.json(data);
