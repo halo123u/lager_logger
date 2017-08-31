@@ -4,17 +4,23 @@
     <title>note_icon</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="note_icon">
-            <rect id="Rectangle-12-Copy-3" fill="#FEFCF9" x="0" y="0" width="34" height="34"></rect>
-            <g id="paper" transform="translate(7.000000, 2.000000)" stroke="#109932">
-                <path d="M20.3546099,29.9751656 L0.620567376,29.9751656 C0.292907801,29.9751656 0.024822695,29.7069536 0.024822695,29.3791391 L0.024822695,0.59602649 C0.024822695,0.268211921 0.292907801,0 0.620567376,0 L14.2730496,0 C14.6007092,0 20.9751773,5.95529801 20.9751773,6.28311258 L20.9503546,29.3791391 C20.9503546,29.7069536 20.6822695,29.9751656 20.3546099,29.9751656 Z" id="Shape" stroke-width="2.23509934" stroke-linecap="round" stroke-linejoin="round"></path>
-                <path d="M4,26 L17,26" id="Line-3" stroke-width="2" stroke-linecap="square"></path>
-                <path d="M4,22 L17,22" id="Line-3-Copy" stroke-width="2" stroke-linecap="square"></path>
-                <path d="M4,18 L17,18" id="Line-3-Copy-2" stroke-width="2" stroke-linecap="square"></path>
-                <path d="M4,14 L17,14" id="Line-3-Copy-3" stroke-width="2" stroke-linecap="square"></path>
-                <path d="M4,10 L17,10" id="Line-3-Copy-4" stroke-width="2" stroke-linecap="square"></path>
-                <path d="M4,6 L16,6" id="Line-3-Copy-5" stroke-width="2" stroke-linecap="square"></path>
+    <g id="MOBLE-Wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.0-Dashboard-Copy" transform="translate(-19.000000, -728.000000)">
+            <g id="Dash_Card" transform="translate(8.000000, 693.000000)">
+                <g id="Group-2">
+                    <g id="note_icon" transform="translate(11.000000, 35.000000)">
+                        <rect id="Rectangle-12-Copy-3" fill="#FEFCF9" x="0" y="0" width="34" height="34"></rect>
+                        <g id="paper" transform="translate(7.000000, 2.000000)" stroke="#FF7300">
+                            <path d="M20.3546099,29.9751656 L0.620567376,29.9751656 C0.292907801,29.9751656 0.024822695,29.7069536 0.024822695,29.3791391 L0.024822695,0.59602649 C0.024822695,0.268211921 0.292907801,0 0.620567376,0 L14.2730496,0 C14.6007092,0 20.9751773,5.95529801 20.9751773,6.28311258 L20.9503546,29.3791391 C20.9503546,29.7069536 20.6822695,29.9751656 20.3546099,29.9751656 Z" id="Shape" stroke-width="2.23509934" stroke-linecap="round" stroke-linejoin="round"></path>
+                            <path d="M4,26 L17,26" id="Line-3" stroke-width="2" stroke-linecap="square"></path>
+                            <path d="M4,22 L17,22" id="Line-3-Copy" stroke-width="2" stroke-linecap="square"></path>
+                            <path d="M4,18 L17,18" id="Line-3-Copy-2" stroke-width="2" stroke-linecap="square"></path>
+                            <path d="M4,14 L17,14" id="Line-3-Copy-3" stroke-width="2" stroke-linecap="square"></path>
+                            <path d="M4,10 L17,10" id="Line-3-Copy-4" stroke-width="2" stroke-linecap="square"></path>
+                            <path d="M4,6 L16,6" id="Line-3-Copy-5" stroke-width="2" stroke-linecap="square"></path>
+                        </g>
+                    </g>
+                </g>
             </g>
         </g>
     </g>
