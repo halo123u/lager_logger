@@ -79,6 +79,14 @@ const notes={
 
     delete : (note_id) => {
         return db.query(`DELETE FROM notes WHERE note_id = $1`, [note_id])
+    },
+
+    findAllWithCompany : ()  => {
+        return db.query(`
+            SELECT * FROM notes JOIN accounts ON 
+            notes.relationship_id = accounts.account_id
+            WHERE notes.note_type = 'ACCOUNT'
+        `)
     }
 }
 

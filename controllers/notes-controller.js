@@ -87,6 +87,15 @@ const notesController= {
             console.log(err);
             res.status(500).json({error: err});
         })
+    },
+    getWithCompany: function(req,res) {
+        Notes.findAllWithCompany()
+        .then(notes => {
+            res.json(notes);
+        }).catch((err)=>{
+            console.log(err);
+            res.status(500).json({error: err});
+        })
     }
 }
 

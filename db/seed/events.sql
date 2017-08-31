@@ -10,15 +10,15 @@ VALUES
 
 INSERT INTO notes (relationship_id, note_type, content, date_info, employee_id)
 VALUES 
-(1,'order','Hella vexillologist fashion axe, 
+(1,'ORDER','Hella vexillologist fashion axe, 
 	skateboard succulents street art jean shorts vinyl intelligentsia humblebrag ethical knausgaard 
 	lyft messenger bag. Tumeric listicle church-key godard williamsburg crucifix. Authentic four dollar 
 	toast synth keffiyeh', '8/10/17',1),
-(3,'visit','Coloring book PBR&B gochujang tousled listicle affogato irony shaman everyday carry 
+(3,'VISIT','Coloring book PBR&B gochujang tousled listicle affogato irony shaman everyday carry 
 	cliche cardigan gentrify bespoke roof party godard.', '8/28/17',2),
-(3,'account','Banjo vexillologist waistcoat, fashion axe bespoke tumblr pok pok everyday carry.', '9/1/17',3),
-(4,'account','Gluten-free whatever banh mi tumeric', '8/1/17',3),
-(3,'account','Tbh PBR&B typewriter 90s tumblr helvetica semiotics lumbersexual deep v chambray.', '9/2/17',3);
+(3,'ACCOUNT','Banjo vexillologist waistcoat, fashion axe bespoke tumblr pok pok everyday carry.', '9/1/17',3),
+(4,'ACCOUNT','Gluten-free whatever banh mi tumeric', '8/1/17',3),
+(3,'ACCOUNT','Tbh PBR&B typewriter 90s tumblr helvetica semiotics lumbersexual deep v chambray.', '9/2/17',3);
 
 INSERT INTO orders (refence_number, delivery_info, account_id, order_date, employee_id)
 VALUES 
