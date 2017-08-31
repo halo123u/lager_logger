@@ -1,4 +1,4 @@
-/c lagger_dev
+\c lagger_dev
 
 DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS events;
