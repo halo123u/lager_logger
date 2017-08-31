@@ -83,6 +83,7 @@ class App extends Component {
 	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
 	      <Route path='/buyer' component={BuyerPage}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
+	      <Route path='/dash' component={Dashboard} />
 				</Switch>
 	      </div>
 				</div>
