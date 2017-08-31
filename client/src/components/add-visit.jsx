@@ -19,11 +19,17 @@ class AddVisit extends Component {
 					</label>
 				</div>
 
+				<div className='box padded'>
+					<p>Additional Info</p>
+					<textarea maxlength="500" className='small-text'/>
+				</div>
+
 				<div className='buttons'>
+
 						<button type='submit'>OK</button>
 						<Link to='/buyer'><button>Cancel</button></Link>
 					</div>
-					
+
 			</div>
 		)
 	}
