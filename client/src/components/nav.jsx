@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Menu from '../symbols/Hamburger.png';
-import Search from '../symbols/Search.png';
+import Menu from '../symbols/hamburger_icon.svg';
+import Search from '../symbols/search.svg';
 import X from '../symbols/X.svg';
 import { Link } from 'react-router-dom';
 
@@ -18,12 +18,11 @@ class Nav extends Component {
 	menu() {
 		return (
 			<div id='menu'>
-				<img src={X} onClick={this.toggleMenu} />
 				<Link to='/dash' onClick={this.toggleMenu}>Dashboard</Link>
 				<Link to='/accounts' onClick={this.toggleMenu}>Accounts</Link>
 				<Link to='/events' onClick={this.toggleMenu}>Calendar</Link>
 				<Link to='/' onClick={this.toggleMenu}>Inventory</Link>
-				<Link to='/' onClick={this.toggleMenu}>Admin</Link>
+				<a onClick={this.toggleMenu} id='close'>Close</a>
 			</div>
 		)
 	}

@@ -18,7 +18,7 @@ nav {
   justify-content: space-between;
   align-items:center;
   height: 44px;
-  background-color: #D8D8D8;
+  background-color: #444444;
   margin: 0;
 }
 
@@ -27,11 +27,12 @@ nav img {
 }
 
 #menu {
-  background-color: #D8D8D8;
+  background-color: #444444;
   width: 94vw;
   height: 100vh;
   position: fixed;
   top: 0;
+  padding-top: 65px;
   left: 0;
   display: block;
   z-index: 100;
@@ -46,11 +47,17 @@ nav img {
   display: block;
   font-size: 36px;
   text-transform: uppercase;
-  font-weight: 400;
+  font-weight: 600;
   margin-left: 35px;
-  margin-top: 4vh;
-  margin-bottom: 4vh;
+  margin-bottom: 8vh;
   padding: 0;
+  color: #FBFBFB;
+}
+
+#close {
+  position: fixed;
+  bottom: 4vh;
+  margin-bottom: 0;
 }
 
 
@@ -88,6 +95,7 @@ p {
   box-shadow: 0 2px 4px rgba(0,0,0,0.5);
   margin: 20px 10px;
   padding: 10px;
+  border-radius: 8px;
 }
 
 .padded {
@@ -124,6 +132,11 @@ p {
   height: 193px;
   width: 88vw;
   margin: 20px auto;
+}
+
+h1 img {
+  margin-bottom: -6px;
+  margin-left: 10px;
 }
 
 ul {
@@ -214,6 +227,7 @@ textarea {
   width: 83vw;
   padding: 20px 10px;
   font-size: 14px;
+  background-color: #FEFCF9;
 }
 a {
   text-decoration: none;
@@ -254,6 +268,7 @@ input[type=text],input[type=number],input[type=date],input[type=time] {
   display: block;
   text-align: left;
   font-size: 14px;
+  background-color: #FEFCF9;
 }
 
 

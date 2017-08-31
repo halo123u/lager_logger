@@ -17,7 +17,7 @@ import AddBuyer from './components/add-buyer';
 import Accounts from './components/accounts';
 import Events from './components/events';
 import Login from './components/login';
-
+import AddVisit from './components/add-visit';
 
 class App extends Component {
 	constructor(){
@@ -77,13 +77,14 @@ class App extends Component {
 		  <Route exact path='/add-emp' component ={()=> <AddEmpl auth={this.state.auth} user={this.state.user}/>} />
 	      <Route exact path='/accounts' component={Accounts}/>
 		  <Route exact path='/accounts/:id' component={BuyerPage}/>
+		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
 	      <Route path='/add-note' component={AddNote}/>
 	      <Route exact path='/events' component={Events}/>
 	      <Route path='/add-event' component={AddEvent}/>
 	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
-	      <Route path='/buyer' component={BuyerPage}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
 	      <Route path='/dash' component={Dashboard} />
+	      >
 				</Switch>
 	      </div>
 				</div>
