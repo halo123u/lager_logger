@@ -1,3 +1,4 @@
+\c lagger_dev
 INSERT INTO accounts (
     account_num,company,buyer,street,state,
     city,neighborhood,zipcode, phone, email,
@@ -9,7 +10,7 @@ VALUES
 
 
 INSERT INTO employees (
-    user_type,username,pass,
+    user_type,username,password,
     first_name, last_name,email,phone)
 VALUES
 ('admin','username', '$2y$10$qll67Fnu4VGBS0kJeo6mleb0rovIOYsq6rhMzbz/qOUp9/gSK/PRm', 'Oswaldo', 'Almazo', 'example@example.com', '2222222222'),

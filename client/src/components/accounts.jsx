@@ -26,7 +26,7 @@ class Accounts extends Component {
 
 	renderAccount(account) {
 		return( 
-			<Link to={`/accounts/${account.account_id}`}>
+			<Link to={`/accounts/${account.account_id}`} key={account.account_id}>
 				<div className='box account'>
 					<h3>{account.company}</h3>
 					<h3>#{account.account_num}</h3>
