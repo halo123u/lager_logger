@@ -14,17 +14,31 @@ import AddEvent from './components/add-event';
 import AddBuyer from './components/add-buyer';
 import Accounts from './components/accounts';
 import Events from './components/events';
+import Login from './components/login';
 
 
 class App extends Component {
+	constructor(){
+		super();
+		this.state={
+			auth:false,
+			user:null,
+		}
+	}
+	handleLogin = (response) =>{
+		this.setState({
+			auth: response.auth,
+			user: response.user
+		});
+	}
   render() {
     return (
     	<Router>
 	      <div className="App">
 	      <Nav/>
-	      <Route exact path='/' component={Dashboard}/>
-	      <Route exact path='/accounts' component={Accounts}/>
-	      <Route exact path='/accounts/:id' component={BuyerPage}/>
+	      <Route exact path='/' component={()=><Login handleLogin={this.handleLogin}/>}/>
+	      <Route path='/accounts' component={Accounts}/>
+		  <Route exact path='/accounts/:id' component={BuyerPage}/>
 	      <Route path='/add-note' component={AddNote}/>
 	      <Route exact path='/events' component={Events}/>
 	      <Route path='/add-event' component={AddEvent}/>
