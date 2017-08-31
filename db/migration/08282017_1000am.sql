@@ -79,3 +79,6 @@ CREATE TABLE IF NOT EXISTS sales(
     cases INT,
     date_info VARCHAR(25)
 );
+
+ALTER TABLE IF EXISTS visits
+ADD COLUMN additonal_info TEXT;
