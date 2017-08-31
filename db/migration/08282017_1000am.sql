@@ -1,4 +1,14 @@
 \c lagger_dev
+DROP TABLE IF EXISTS sales;
+DROP TABLE IF EXISTS events;
+DROP TABLE IF EXISTS visits;
+DROP TABLE IF EXISTS orders;
+DROP TABLE IF EXISTS notes;
+DROP TABLE IF EXISTS accounts;
+DROP TABLE IF EXISTS employees;
+
+
+
 CREATE TABLE IF NOT EXISTS employees(
     emp_id SERIAL PRIMARY KEY UNIQUE,
     user_type VARCHAR(15),
