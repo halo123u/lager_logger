@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import axios from 'axios';
-//import browserHistory from 'react-router-dom'
-=======
 import {Redirect} from 'react-router-dom';
 import axios from 'axios';
->>>>>>> add auth on add-buyer route
 
 class AddBuyer extends Component {
 	constructor() {
