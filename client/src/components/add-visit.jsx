@@ -28,7 +28,13 @@ class AddVisit extends Component {
 				account_id: this.props.match.params.id,
 				employee_id: res.data.user.emp_id,
 			});
-		}).catch(err => console.log(err));
+		}).catch(err => {
+			console.log(err);
+			this.setState({
+				redirect: true,
+				currentPage: '/'
+			})
+		});
 	}
 
 	handleInputChange(e) {
@@ -41,6 +47,7 @@ class AddVisit extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
+		//add note if entered
 		if (this.state.content) {
 			axios.post('/notes', {
 				relationship_id: this.state.account_id,
@@ -59,14 +66,9 @@ class AddVisit extends Component {
 		})
 		.then(res => {
 			console.log(res)
-			this.setState({
-				currentPage: `/accounts/${this.state.account_id}`,
-				redirect:true
-			});
+			this.props.history.goBack();
 		})
 		.catch(err => console.log(err));
-		//add note
-		
 		
 	}
 
@@ -74,6 +76,7 @@ class AddVisit extends Component {
 		return (
 			<div id='add-visit'>
 				<h1>Create Visit <img src={Visit}/></h1>
+				<form onSubmit={this.handleSubmit}>
 				<div className='box padded'>
 					<label>
 					   Date of Visit *
@@ -109,6 +112,7 @@ class AddVisit extends Component {
 						<button type='submit'>OK</button>
 						<Link to={`/accounts/${this.state.account_id}`}><button>Cancel</button></Link>
 					</div>
+				</form>
 
 			</div>
 		)
