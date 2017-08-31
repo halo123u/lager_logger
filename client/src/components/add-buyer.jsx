@@ -66,15 +66,10 @@ class AddBuyer extends Component {
       status : this.state.status,
 		})
 		.then(res => {
-<<<<<<< HEAD
-			console.log(res);
-			this.props.history.goBack()
-=======
 			this.setState({
 				currentPage: '/accounts',
 				redirect:true
 			});
->>>>>>> add auth on add-buyer route
 		}).catch(err => console.log(err));
 	}
 
