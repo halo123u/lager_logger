@@ -13,6 +13,7 @@ import AddOrderVisit from './components/add-order-visit';
 import AddEvent from './components/add-event';
 import AddBuyer from './components/add-buyer';
 import Accounts from './components/accounts'
+import ChangePass from './components/change-password'
 
 
 class App extends Component {
@@ -27,7 +28,8 @@ class App extends Component {
 	      <Route path='/add-event' component={AddEvent}/>
 	      <Route path='/add-account' component={AddBuyer}/>
 	      <Route path='/buyer' component={BuyerPage}/>
-	      <Route path='/add-order-visit' component={AddOrderVisit}/>
+        <Route path='/add-order-visit' component={AddOrderVisit}/>
+        <Route path='/employees/changepassword/:emp_id' component={ChangePass}/>
 
 	      </div>
 	     </Router>

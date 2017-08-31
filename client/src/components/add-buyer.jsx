@@ -64,34 +64,34 @@ class AddBuyer extends Component {
 					<div className='box padded'>
 						<label>
 							Account Number
-							<input 
-								type='number' 
-								name='account_num' 
-								value={this.state.account_num} 
+							<input
+								type='number'
+								name='account_num'
+								value={this.state.account_num}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='placeholder'
 							required />
 						</label>
 
 						<label>
 							Company Name
-							<input 
-								type='text' 
+							<input
+								type='text'
 								name='company'
 								value={this.state.company}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='placeholder'
 								required />
 						</label>
 
 						<label>
 							Buyer
-							<input 
-								type='text' 
+							<input
+								type='text'
 								name='buyer'
-								value={this.state.buyer} 
+								value={this.state.buyer}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='placeholder'
 							required />
 						</label>
 					</div>
@@ -99,20 +99,20 @@ class AddBuyer extends Component {
 					<div className='box padded'>
 						<label>
 							Street Address
-							<input 
-								type='text' 
-								name='street' 
+							<input
+								type='text'
+								name='street'
 								value={this.state.street}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='placeholder'
 							required />
 						</label>
 
 						<label>
 							Neighborhood  <span className='optional'>(optional)</span>
-							<input 
-								type='text' 
-								name='neighborhood' 
+							<input
+								type='text'
+								name='neighborhood'
 								value={this.state.neighborhood}
 								onChange={this.handleInputChange}
 								placeholder='placeholder' />
@@ -120,32 +120,32 @@ class AddBuyer extends Component {
 
 						<label>
 							City
-							<input 
-								type='text' 
-								name='city' 
+							<input
+								type='text'
+								name='city'
 								value={this.state.city}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='placeholder'
 							required />
 						</label>
 
 						<label>
 							State
-							<input 
-								type='text' 
-								name='state' 
+							<input
+								type='text'
+								name='state'
 								value={this.state.state}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='placeholder'
 							required />
 						</label>
 
 						<label>
 							Zipcode
-							<input 
-								type='number' 
-								name='zipcode' 
-								placeholder='placeholder' 
+							<input
+								type='number'
+								name='zipcode'
+								placeholder='placeholder'
 								value={this.state.zipcode}
 								onChange={this.handleInputChange}
 							required />
@@ -153,23 +153,23 @@ class AddBuyer extends Component {
 
 						<label>
 							Phone Number
-							<input 
-								type='text' 
-								name='phone' 
+							<input
+								type='text'
+								name='phone'
 								value={this.state.phone}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='placeholder'
 							required />
 						</label>
 
 						<label>
 							Email Address
-							<input 
-								type='text' 
-								name='email' 
+							<input
+								type='text'
+								name='email'
 								value={this.state.email}
 								onChange={this.handleInputChange}
-								placeholder='placeholder' 
+								placeholder='placeholder'
 							required />
 						</label>
 					</div>
@@ -196,18 +196,18 @@ class AddBuyer extends Component {
 
 						<label>
 							Preferred Delivery Day <span className='optional'> (optional)</span>
-							<input 
+							<input
 								type='date'
 								name='delivery_day'
 								onChange={this.handleInputChange} />
-				
+
 						</label>
 
 						<label>
 							Preferred Time of Delivery <span className='optional'>(optional)</span>
-							<input 
-								type='time' 
-								name='delivery_time' 
+							<input
+								type='time'
+								name='delivery_time'
 								onChange={this.handleInputChange} />
 						</label>
 					</div>

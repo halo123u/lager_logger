@@ -49,6 +49,7 @@ app.use("/notes/", notesRoutes);
 
 const ordersRoutes = require('./routes/orders-routes');
 app.use('/orders/', ordersRoutes);
+
 const salesRoutes = require('./routes/sales-routes');
 app.use('/sales/', salesRoutes);
 
