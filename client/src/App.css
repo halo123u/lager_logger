@@ -5,6 +5,7 @@ body {
   width: 100vw;
   margin: 0;
   margin-top: 44px;
+  background-color: #FEFCF9;
 }
 
 nav {
@@ -24,6 +25,34 @@ nav {
 nav img {
   margin: 0 16px;
 }
+
+#menu {
+  background-color: #D8D8D8;
+  width: 94vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  z-index: 100;
+}
+
+#menu img {
+  margin-left: 80vw;
+  margin-top: 20px;
+}
+
+#menu a {
+  display: block;
+  font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-left: 35px;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
+  padding: 0;
+}
+
 
 h1 {
   font-weight: bold;
@@ -73,12 +102,12 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
 }
 
 .account {
   padding: 20px;
 }
+
 .content {
   margin: 10px;
 }
@@ -87,7 +116,6 @@ p {
   line-height: 25px;
   font-size: 18px;
   margin: 0;
-  padding:
 }
 
 #dummy-img {
@@ -115,6 +143,7 @@ li span {
   width: 80px;
   position: relative;
   margin-right: 10px;
+  z-index: -1;
 }
 
 #recent-activity {
@@ -127,17 +156,22 @@ li span {
   height: 20px;
 }
 
-#recent-activity a {
+#recent-activity a, .right a {
   font-size: 16px;
   text-decoration: underline;
   color: #005EFF;
 }
 
-#accounts button {
+.right a {
+  margin-right: 25px;
+}
+
+#accounts button, #events button {
   width: 300px;
   font-size: 24px;
   font-weight: 800;
   margin: 20px;
+  align-self: center;
 }
 
 #accounts {
@@ -165,15 +199,10 @@ button {
 }
 
 .buyer {
-  margin-top: 40px;
   display: flex;
   justify-content: space-between;
   padding-top: 25px;
   padding-bottom: 15px;
-}
-
-.address {
-  width: 120px;
 }
 
 textarea {
@@ -186,9 +215,9 @@ textarea {
   padding: 20px 10px;
   font-size: 14px;
 }
-
-.left {
-  line-height: 33px;
+a {
+  text-decoration: none;
+  color: black;
 }
 
 .right {
@@ -224,17 +253,10 @@ input[type=text],input[type=number],input[type=date],input[type=time] {
   border-radius: 3px;
   display: block;
   text-align: left;
-  margin: 5px 10px 20px 0;
-  padding: 10px;
   font-size: 14px;
 }
 
-input[type=text] {
-  width: 90%;
-}
-input[type=number] {
-  width: 30px;
-}
+
 
 input[type=radio] {
   margin-bottom: 25px;
@@ -245,8 +267,14 @@ input[type=time],input[type=date] {
   font-size: 14px;
 }
 
+input{
+  margin-top: 5px;
+  width: 90%;
+  margin-bottom: 15px;
+  padding: 8px;
+}
 
-select,option {
+select {
   background: linear-gradient(#F2F2F2, #D4D4D4);
   margin: 5px 10px 20px 0;
   box-shadow: inset 0 2px 0 white;
@@ -256,7 +284,6 @@ select,option {
   font-size: 14px;
   text-align: left;
   display: block;
-
   width: 90%;
 }
 
@@ -271,12 +298,18 @@ select,option {
   color: #979797;
 }
 
-small-box{
-  width: 40%;
-  height: 20%;
-  margin: center;
+#add-buttons button {
+  font-size: 14px;
+  width: 95px;
 }
 
-.App{
+#add-buttons {
   display: flex;
+  justify-content: space-between;
+  margin: 0 30px;
+  margin-bottom: 20px; 
+}
+
+.date {
+  font-weight: 600;
 }

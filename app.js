@@ -53,6 +53,11 @@ app.use('/orders/', ordersRoutes);
 const salesRoutes = require('./routes/sales-routes');
 app.use('/sales/', salesRoutes);
 
+const visitsRoutes = require('./routes/visit-routes');
+app.use('/visits/', visitsRoutes);
+
+const eventsRoutes = require('./routes/event-routes');
+app.use('/events/', eventsRoutes);
 
 app.get('*',(req,res)=>{
     res.status(400).json({

@@ -1,32 +1,68 @@
 import React, { Component } from 'react';
 import RecentActivity from './recent-activity';
-import Triangle from '../symbols/Triangle.png';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class BuyerPage extends Component {
-	render () {
+	constructor() {
+		super()
+		this.state = {
+			accountInfo: null,
+			accountInfoLoaded: null,
+		}
+		this.renderAccountInfo = this.renderAccountInfo.bind(this);
+	}
+
+	componentDidMount() {
+		console.log('did mount');
+		axios.get(`/accounts/id/${this.props.match.params.id}`)
+		.then(res => {
+			console.log(res.data);
+			this.setState({
+				accountInfo: res.data,
+				accountInfoLoaded: true
+			})
+			console.log(this.state)
+		}).catch(err => console.log(err));
+
+	}
+
+	renderAccountInfo() {
+		console.log('render account info')
+		console.log(this.state.accountInfo)
 		return (
 			<div>
+				<h1>{this.state.accountInfo.buyer}</h1>
 				<div className='box buyer'>
 					<div className='left'>
-						<h3>Drexlers</h3>
-						<p className='address'>East Villiage
-						9 Avenue A,
-						New York, NY
-						10009</p>
+						<p>
+							{this.state.accountInfo.neighborhood || ''}<br/>
+							{this.state.accountInfo.street}<br/>
+							{this.state.accountInfo.city}, {this.state.accountInfo.state}<br/>
+							{this.state.accountInfo.zipcode}
+						</p>
 					</div>
 					<div className='right'>
 						<h3>#RD0956</h3>
-						<Link to='/add-order-visit'><button>Add Order/Visit</button></Link>
-						<img src={Triangle} />
+						<a>Edit</a>
 					</div>
 				</div>
-				<div id='add-note'>
+				<div id='add-buttons'>
+					<Link to='/add-visit'><button>Add Visit</button></Link>
 					<Link to='/add-note'><button>Add Note</button></Link>
+					<Link to='/add-order'><button>Add Order</button></Link>
 				</div>
 				<RecentActivity />
 			</div>
 		);
+	}
+
+	render () {
+		return (
+			<div>
+			{this.state.accountInfoLoaded ? this.renderAccountInfo() : <h1>loading</h1>}
+			</div>
+		)
 	}
 }
 

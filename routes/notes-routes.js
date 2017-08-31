@@ -10,4 +10,6 @@ notesRoutes.delete("/:note_id", notesController.delete);
 notesRoutes.get("/type/:note_type",notesController.findAllByType)
 notesRoutes.post("/type/:note_type",notesController.findAllByRelationship)
 
+notesRoutes.get('/comps/accounts', notesController.getWithCompany);
+
 module.exports = notesRoutes;

@@ -18,7 +18,7 @@ Orders.create = order => {
         order.account_id,
         order.order_date,
         order.employee_id]);
-},
+}
 
 
 // ------------------- Finders --------------------------
@@ -113,7 +113,12 @@ Orders.delete = (order_id) => {
     `, [order_id])
 }
 
-
+Orders.findAllWithCompany = () => {
+    return db.query(`
+        SELECT * FROM orders JOIN accounts
+        ON orders.account_id = accounts.account_id
+    `)
+}
 
 
 

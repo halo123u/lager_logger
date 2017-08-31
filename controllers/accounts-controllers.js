@@ -29,7 +29,7 @@ const accountController = {
     },
     addAccount : (req,res) => {
         Account.createNewAcc({
-            account_num : req.body.acc_num,
+            account_num : req.body.account_num,
             company : req.body.company,
             buyer : req.body.buyer,
             street : req.body.street,
@@ -39,8 +39,8 @@ const accountController = {
             zipcode : req.body.zipcode,
             phone :req.body.phone,
             email :req.body.email,
-            delivery_day : req.body.deliveryDay,
-            delivery_time : req.body.deliveryTime,
+            delivery_day : req.body.delivery_day,
+            delivery_time : req.body.delivery_time,
             premises : req.body.premises,
             status : req.body.status
         }).then(data => {

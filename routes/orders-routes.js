@@ -4,10 +4,12 @@ const orderRoutes = express.Router();
     
 
 orderRoutes.get('/', ordersController.index);
-orderRoutes.get('/:id',ordersController.getById);
+orderRoutes.get('/id/:id',ordersController.getById);
 orderRoutes.post('/',ordersController.create);
-orderRoutes.put('/:id',ordersController.update);
-orderRoutes.delete('/:id',ordersController.delete);
+orderRoutes.put('/id/:id',ordersController.update);
+orderRoutes.delete('/id/:id',ordersController.delete);
+
+orderRoutes.get('/comps',ordersController.getWithCompany);
     
 
 module.exports = orderRoutes;

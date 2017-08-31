@@ -11,7 +11,7 @@ class Dashboard extends Component {
 				</div>
 
 				<div className='box'>
-					<h2>Upcoming Events</h2>
+					<h2>Upcoming</h2>
 					<ul>
 						<li><span>9/1/17</span>Electric Zoo</li>
 						<li><span>10/1/17</span>Annual Montauk Surf Classic</li>
