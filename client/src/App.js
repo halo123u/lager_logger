@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import {
   BrowserRouter as Router,
-  Route
+  Route, Redirect, Switch
 } from 'react-router-dom';
 
 import Nav from './components/nav';
@@ -23,19 +23,38 @@ class App extends Component {
 		this.state={
 			auth:false,
 			user:null,
+			currentPage: '/',
+			redirect: false
 		}
 	}
+	componentWillUpdate = (prevState, nextState) => {
+       if(nextState.redirect){
+         this.setState({
+           redirect: false,
+           currentPage: '/'
+         });
+          return true;
+       }else{
+         return false
+       }
+     }
 	handleLogin = (response) =>{
 		this.setState({
 			auth: response.auth,
-			user: response.user
+			user: response.user,
+			redirect: true,
+			currentPage: '/accounts'
 		});
 	}
   render() {
     return (
-    	<Router>
+			<Router>
+    	
 	      <div className="App">
 	      <Nav/>
+				<div>
+				{this.state.redirect ? (<Redirect to={`${this.state.currentPage}`}/>): null}
+				<Switch>
 	      <Route exact path='/' component={()=><Login handleLogin={this.handleLogin}/>}/>
 	      <Route path='/accounts' component={Accounts}/>
 		  <Route exact path='/accounts/:id' component={BuyerPage}/>
@@ -45,9 +64,10 @@ class App extends Component {
 	      <Route path='/add-account' component={AddBuyer}/>
 	      <Route path='/buyer' component={BuyerPage}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
-
+				</Switch>
 	      </div>
-	     </Router>
+				</div>
+			</Router>
     );
   }
 }
