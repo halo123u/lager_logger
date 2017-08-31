@@ -11,7 +11,7 @@ const Employees = {
 
     update:(employee)=> {
         return (employee.updatePassword==true) ?
-             db.one(`UPDATE employees set
+             db.none(`UPDATE employees set
               password    =$1
               WHERE emp_id=$2`,[employee.newPassword,employee.id])
         :

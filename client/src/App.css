@@ -120,10 +120,10 @@ p {
 
 #dummy-img {
   background-color: #D8D8D8;
-  border: 1px solid rgb(74,74,74); 
+  border: 1px solid rgb(74,74,74);
   height: 193px;
   width: 88vw;
-  margin: 20px auto; 
+  margin: 20px auto;
 }
 
 ul {
@@ -149,7 +149,7 @@ li span {
 #recent-activity {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; 
+  justify-content: space-between;
   align-items: center;
   margin: 0 25px;
   padding: 0;
@@ -239,7 +239,7 @@ a {
 }
 
 .right img {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 .note {
