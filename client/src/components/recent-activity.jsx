@@ -11,7 +11,9 @@ class RecentActivity extends Component {
 			orders: null,
 			ordersLoaded: false,
 			visits: null,
+			visitsLoaded: false,
 			notes: null,
+			notesLoaded: false,
 		}
 		this.renderActivity = this.renderActivity.bind(this);
 	}
@@ -34,6 +36,14 @@ class RecentActivity extends Component {
 				visitsLoaded: true,
 			});
 		}).catch(err => console.log(err));
+		//get notes
+		axios.get('/notes/comps/accounts')
+		.then(res => {
+			this.setState({
+				notes: res.data.map(note => {note.icon = Note; return note}),
+				notesLoaded: true,
+			})
+		})
 	}
 
 	renderActivity(activity) {
@@ -42,8 +52,8 @@ class RecentActivity extends Component {
 				<img src={activity.icon} className='icon'/>
 				<div className='content'>	
 					<h4>{activity.company}</h4>
-					<p className='date'>{activity.order_date || activity.date_info}</p>
-					<p>{activity.delivery_info || ''}</p>
+					<p className='date'>{activity.order_date || activity.date_info || ''}</p>
+					<p>{activity.delivery_info || activity.content || ''}</p>
 				</div>
 			</div>
 		)
@@ -65,6 +75,7 @@ class RecentActivity extends Component {
 				</div>
 				{this.state.ordersLoaded ? this.state.orders.map(this.renderActivity) : ''}
 				{this.state.visitsLoaded ? this.state.visits.map(this.renderActivity) : ''}
+				{this.state.notesLoaded ? this.state.notes.map(this.renderActivity) : ''} 
 			</div>
 		)
 	}
