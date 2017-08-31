@@ -13,28 +13,37 @@ class RecentActivity extends Component {
 			visits: null,
 			notes: null,
 		}
-		this.renderOrders = this.renderOrders.bind(this);
+		this.renderActivity = this.renderActivity.bind(this);
 	}
 
 	componentDidMount() {
 		console.log('did mount')
+		//get orders
 		axios.get('/orders/comps')
 		.then(res => {
 			this.setState({
-				orders: res.data,
+				orders: res.data.map(order => {order.icon = Order; return order}),
 				ordersLoaded: true,
+			});
+		}).catch(err => console.log(err));
+		//get visits
+		axios.get('/visits/comps')
+		.then(res => {
+			this.setState({
+				visits: res.data.map(visit => {visit.icon = Visit; return visit}),
+				visitsLoaded: true,
 			});
 		}).catch(err => console.log(err));
 	}
 
-	renderOrders(order) {
+	renderActivity(activity) {
 		return (
 			<div className='box activity'>
-				<img src={Order} className='icon'/>
+				<img src={activity.icon} className='icon'/>
 				<div className='content'>	
-					<h4>{order.company}</h4>
-					<p className='date'>{order.order_date}</p>
-					<p>{order.delivery_info}</p>
+					<h4>{activity.company}</h4>
+					<p className='date'>{activity.order_date || activity.date_info}</p>
+					<p>{activity.delivery_info || ''}</p>
 				</div>
 			</div>
 		)
@@ -54,7 +63,8 @@ class RecentActivity extends Component {
 						<p>Viral lo-fi pickled pok pok mustache actually. </p>
 					</div>
 				</div>
-				{this.state.ordersLoaded ? this.state.orders.map(this.renderOrders) : ''}
+				{this.state.ordersLoaded ? this.state.orders.map(this.renderActivity) : ''}
+				{this.state.visitsLoaded ? this.state.visits.map(this.renderActivity) : ''}
 			</div>
 		)
 	}
