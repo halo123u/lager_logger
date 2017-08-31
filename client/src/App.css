@@ -74,12 +74,12 @@ p {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
 }
 
 .account {
   padding: 20px;
 }
+
 .content {
   margin: 10px;
 }
@@ -88,7 +88,6 @@ p {
   line-height: 25px;
   font-size: 18px;
   margin: 0;
-  padding: 
 }
 
 #dummy-img {
@@ -280,4 +279,8 @@ select {
   justify-content: space-between;
   margin: 0 30px;
   margin-bottom: 20px; 
+}
+
+.date {
+  font-weight: 600;
 }

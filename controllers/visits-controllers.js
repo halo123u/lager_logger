@@ -29,7 +29,15 @@ const visitsController = {
             console.log(data);
             res.json(data);
         }).catch(err => console.log(err));
+    },
+    getWithCompany: (req,res) => {
+        Visits.findAllWithCompany()
+        .then(data => {
+            console.log(data);
+            res.json(data);
+        }).catch(err => console.log(err));
     }
+
 }
 
 module.exports = visitsController;

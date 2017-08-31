@@ -38,4 +38,11 @@ Visits.findByEmployeeId = employee_id => {
     `, [employee_id])
 }
 
+Visits.findAllWithCompany = () => {
+    return db.query(`
+        SELECT * FROM visits JOIN accounts
+        ON visits.account_id = accounts.account_id
+    `)
+}
+
 module.exports = Visits;
