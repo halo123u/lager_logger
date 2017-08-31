@@ -14,7 +14,8 @@ const visitsController = {
         Visits.create ({
             date_info: req.body.date_info,
             account_id:req.body.account_id,
-            employee_id: req.body.employee_id
+            employee_id: req.body.employee_id,
+            additonal_info: req.body.additonal_info
         }).then(data => {
             console.log(data);
             res.json(data);
@@ -49,7 +50,8 @@ const visitsController = {
         Visits.update({
             date_info: req.body.date_info,
             account_id:req.body.account_id,
-            employee_id: req.body.employee_id
+            employee_id: req.body.employee_id,
+            additonal_info: req.body.additonal_info
         }, req.params.id).then(data => {
             console.log(data);
             res.json(data);
