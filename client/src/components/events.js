@@ -2,47 +2,44 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
+import ViewEvent from './view-event';
+
 class Events extends Component {
 	constructor() {
 		super();
 		this.state = {
-			accounts : null,
-			accountsLoaded: false,
+			events: null,
+			eventsLoaded: false,
 		}
 		
 	}
-/*
+
 	componentDidMount() {
 		console.log('did mount');
 		axios.get('/events')
 		.then(res => {
 			console.log(res.data);
 			this.setState({
-				accounts: res.data,
-				accountsLoaded: true
+				events: res.data,
+				eventsLoaded: true
 			});
 		}).catch(err => console.log(err));
 	}
-*/
-	renderEvent(event) {
-		return(
-			<div className='box event'>
-				<h4>{event.event_name}</h4>
-				<p>{event.date}</p>
-				<p>{}</p>
-			</div>
-		)	
+
+	renderEvent() {
+		if (this.state.eventsLoaded) {
+			return this.state.events.map((event,index) => {
+				return (
+					<ViewEvent key={event.event_id} events={event} />
+				);
+			});
+		} else return <p>Loading ... </p>
 	}
 
 	render () {
 		return (
 			<div id='events'>
-				<h1>Calendar</h1>
-				<Link to='/add-event'><button>Add Event</button></Link>
-				<div className='box event'>
-					<h4>Drexler's</h4>
-					<p>Viral lo-fi pickled pok pok mustache actually.</p>
-				</div>
+				{this.renderEvent()}
 			</div>
 		);
 	}
