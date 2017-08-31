@@ -113,7 +113,12 @@ Orders.delete = (order_id) => {
     `, [order_id])
 }
 
-
+Orders.findAllWithCompany = () => {
+    return db.query(`
+        SELECT * FROM orders JOIN accounts
+        ON orders.account_id = accounts.account_id
+    `)
+}
 
 
 

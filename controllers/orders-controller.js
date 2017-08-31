@@ -78,6 +78,17 @@ ordersController.delete = (req, res) => {
         res.status(500).json({error: err});
     })
 }
-    
+ 
+
+ordersController.getWithCompany = (req,res) => {
+    Orders.findAllWithCompany()
+    .then(orders => {
+        res.json(orders);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json({error: err});
+    })
+}   
 
 module.exports = ordersController;
