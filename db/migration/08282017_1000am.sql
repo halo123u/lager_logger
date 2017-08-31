@@ -1,4 +1,3 @@
-\c lagger_dev
 DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS visits;
