@@ -1,31 +1,44 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import axios from 'axios';
 //import browserHistory from 'react-router-dom'
+=======
+import {Redirect} from 'react-router-dom';
+import axios from 'axios';
+>>>>>>> add auth on add-buyer route
 
 class AddBuyer extends Component {
 	constructor() {
 		super();
 		this.state = {
-      account_num : null,
-      company : null,
-      buyer : null,
-      street : null,
-      state : null,
-      city : null,
-      neighborhood : null,
-      zipcode : null,
-      phone : null,
-      email : null,
-      delivery_day : null,
-      delivery_time : null,
+      account_num : '',
+      company : '',
+      buyer : '',
+      street : '',
+      state : '',
+      city : '',
+      neighborhood : '',
+      zipcode : '',
+      phone : '',
+      email : '',
+      delivery_day : '',
+      delivery_time : '',
       premises : null,
-      status : null,
+	  status : '',
+	  redirect: false,
+	  currentPage: '/'
 		}
-		this.handleInputChange = this.handleInputChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleInputChange(e) {
+	componentWillMount() {
+		if(!this.props.auth){
+			this.setState({
+				redirect:true
+			});
+		}
+	}
+
+	handleInputChange = (e) => {
 		const name = e.target.name
 		const value = e.target.value
 		this.setState({
@@ -33,7 +46,7 @@ class AddBuyer extends Component {
 		})
 	}
 
-	handleSubmit(e) {
+	handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(this.state);
 		axios.post('/accounts', {
@@ -53,8 +66,15 @@ class AddBuyer extends Component {
       status : this.state.status,
 		})
 		.then(res => {
+<<<<<<< HEAD
 			console.log(res);
 			this.props.history.goBack()
+=======
+			this.setState({
+				currentPage: '/accounts',
+				redirect:true
+			});
+>>>>>>> add auth on add-buyer route
 		}).catch(err => console.log(err));
 	}
 
@@ -62,6 +82,7 @@ class AddBuyer extends Component {
 		//console.log(this.props)
 		return (
 			<div id='add-account'>
+				{this.state.redirect? <Redirect to={`${this.state.currentPage}`}/>: null}
 				<h1>Add Account</h1>
 				<form onSubmit={this.handleSubmit}>
 					<div className='box padded'>

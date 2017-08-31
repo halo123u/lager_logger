@@ -58,7 +58,7 @@ class App extends Component {
 			auth: response.auth,
 			user: response.user,
 			redirect: true,	
-			currentPage: '/accounts'
+			currentPage: '/add-account'
 		});
 		}	
 	}
@@ -80,7 +80,7 @@ class App extends Component {
 	      <Route path='/add-note' component={AddNote}/>
 	      <Route exact path='/events' component={Events}/>
 	      <Route path='/add-event' component={AddEvent}/>
-	      <Route path='/add-account' component={AddBuyer}/>
+	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
 	      <Route path='/buyer' component={BuyerPage}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
 				</Switch>
