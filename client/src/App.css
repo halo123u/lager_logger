@@ -126,6 +126,11 @@ p {
   margin: 20px auto;
 }
 
+h1 img {
+  margin-bottom: -6px;
+  margin-left: 10px;
+}
+
 ul {
   padding: 0;
   margin: 0px;

@@ -17,7 +17,7 @@ import AddBuyer from './components/add-buyer';
 import Accounts from './components/accounts';
 import Events from './components/events';
 import Login from './components/login';
-
+import AddVisit from './components/add-visit';
 
 class App extends Component {
 	constructor(){
@@ -84,6 +84,7 @@ class App extends Component {
 	      <Route path='/buyer' component={BuyerPage}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
 	      <Route path='/dash' component={Dashboard} />
+	      <Route path='/add-visit' component={AddVisit} />
 				</Switch>
 	      </div>
 				</div>
