@@ -24,11 +24,11 @@ Visits.create = visit => {
         visit.additonal_info])
 }
 
-Visits.findById = id => {
+Visits.findById = visit_id => {
     return db.one (`
     SELECT * FROM visits
     WHERE visit_id = $1
-    `, [id]);
+    `, [visit_id]);
 }
 
 Visits.findByMoment = moments => {
