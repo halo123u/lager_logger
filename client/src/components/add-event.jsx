@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 class AddEvent extends Component {
@@ -6,22 +7,52 @@ class AddEvent extends Component {
 		super();
 		this.state = {
 			event_name: null,
-			date: null,
-			time: null,
+			date_info: null,
+			time_info: null,
 			street: null,
 			city: null,
 			state: null,
-			zipcode: null
+			zipcode: null,
+			additional_info: null,
+			account_id:null,
+			employee_id:null,
 		}
 		this.handleInputChange = this.handleInputChange.bind(this);
+		this.handleFormSubmit = this.handleFormSubmit.bind(this);
 	}
 
 	handleInputChange(e) {
-		const name = e.target.name
-		const value = e.target.value
+		const name = e.target.name;
+		const value = e.target.value;
 		this.setState({
-			[name] : value,
+			[name]: value,
+		});
+	}
+
+	componentDidMount(){
+		this.setState({
+			employee_id:null,
+			account_id:null,
 		})
+	}
+	handleFormSubmit(e) {
+		e.preventDefault();
+		console.log(this.state);
+		axios.post('/events', {
+			event_name: this.state.event_name,
+			date_info: this.state.date_info,
+			time_info: this.state.time_info,
+			street: this.state.street,
+			city: this.state.city,
+			state: this.state.state,
+			zipcode: this.state.zipcode,
+			additional_info: this.state.additional_info,
+			account_id: this.state.account_id,
+			employee_id: this.state.employee_id,
+		}).then(res => {
+			console.log(res);
+		}).catch(err => console.log(err));
+		e.target.reset();
 	}
 
 
@@ -29,12 +60,13 @@ class AddEvent extends Component {
 		return (
 			<div>
 				<h1>Add Event</h1>
-				<form>
+				<form onSubmit={this.handleFormSubmit}>
 					<div className='box padded'>
 						<label>
 							Event Name *
 							<input 
 								type='text' 
+								name='event_name' 
 								placeholder='The Met Gala' 
 								value={this.state.event_name}
 								onChange={this.handleInputChange}
@@ -45,7 +77,8 @@ class AddEvent extends Component {
 							Date *
 							<input 
 								type='date'
-								value={this.state.event_name}
+								name='date_info' 
+								value={this.state.date_info}
 								onChange={this.handleInputChange}
 								required />
 						</label>
@@ -53,8 +86,9 @@ class AddEvent extends Component {
 						<label>
 							Time *
 							<input 
-								type='time' 
-								name='time' 
+								type='time'
+								value={this.state.time_info} 
+								name='time_info' 
 								onChange={this.handleInputChange} />
 						</label>
 						</div>
@@ -107,7 +141,7 @@ class AddEvent extends Component {
 
 					<div className='box padded'>
 						<p>Additional Info</p>
-						<textarea className='small-text' placeholder='text area content'/>
+						<textarea className='small-text' placeholder='text area content' name='additional_info' value={this.state.additional_info} onChange={this.handleInputChange}/>
 					</div>
 
 					<div className='buttons'>
