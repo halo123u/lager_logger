@@ -3,7 +3,14 @@ const ordersController = {}
     
 
 ordersController.create = (req, res) => {
-    Orders.create(req.order)
+    order = {
+        refence_number: req.body.refence_number,
+        delivery_info: req.body.delivery_info,
+        account_id: req.body.account_id,
+        order_date: req.body.order_date,
+        employee_id: req.body.employee_id,
+    }
+    Orders.create(order)
     .then( orders => {
         res.json(orders);
         console.log(orders)
