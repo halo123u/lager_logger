@@ -1,19 +1,45 @@
 import React, { Component } from 'react';
 import RecentActivity from './recent-activity';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 class BuyerPage extends Component {
-	render () {
+	constructor() {
+		super()
+		this.state = {
+			accountInfo: null,
+			accountInfoLoaded: null,
+		}
+		this.renderAccountInfo = this.renderAccountInfo.bind(this);
+	}
+
+	componentDidMount() {
+		console.log('did mount');
+		axios.get(`/accounts/id/${this.props.match.params.id}`)
+		.then(res => {
+			console.log(res.data);
+			this.setState({
+				accountInfo: res.data,
+				accountInfoLoaded: true
+			})
+			console.log(this.state)
+		}).catch(err => console.log(err));
+
+	}
+
+	renderAccountInfo() {
+		console.log('render account info')
+		console.log(this.state.accountInfo)
 		return (
 			<div>
-				<h1>Drexlers</h1>
+				<h1>{this.state.accountInfo.buyer}</h1>
 				<div className='box buyer'>
 					<div className='left'>
 						<p>
-							East Village<br/>
-							9 Avenue A,<br/>
-							New York, NY<br/>
-							10009
+							{this.state.accountInfo.neighborhood || ''}<br/>
+							{this.state.accountInfo.street}<br/>
+							{this.state.accountInfo.city}, {this.state.accountInfo.state}<br/>
+							{this.state.accountInfo.zipcode}
 						</p>
 					</div>
 					<div className='right'>
@@ -29,6 +55,14 @@ class BuyerPage extends Component {
 				<RecentActivity />
 			</div>
 		);
+	}
+
+	render () {
+		return (
+			<div>
+			{this.state.accountInfoLoaded ? this.renderAccountInfo() : <h1>loading</h1>}
+			</div>
+		)
 	}
 }
 

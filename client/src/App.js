@@ -23,9 +23,10 @@ class App extends Component {
 	      <div className="App">
 	      <Nav/>
 	      <Route exact path='/' component={Dashboard}/>
-	      <Route path='/accounts' component={Accounts}/>
+	      <Route exact path='/accounts' component={Accounts}/>
+	      <Route exact path='/accounts/:id' component={BuyerPage}/>
 	      <Route path='/add-note' component={AddNote}/>
-	      <Route path='/events' component={Events}/>
+	      <Route exact path='/events' component={Events}/>
 	      <Route path='/add-event' component={AddEvent}/>
 	      <Route path='/add-account' component={AddBuyer}/>
 	      <Route path='/buyer' component={BuyerPage}/>
