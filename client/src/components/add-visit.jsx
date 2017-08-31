@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Visit from '../symbols/visit_icon.svg';
+import axios from 'axios';
 
 class AddVisit extends Component {
 	constructor() {
 		super();
-		this.state {
+		this.state = {
 			date_info: null,
      	account_id: null,
  			employee_id: null,
  			content: null,
 		}
 		this.handleInputChange = this.handleInputChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	componentDidMount() {
 		console.log('did mount');
+		console.log(this.props);
+		this.setState({
+			account_id: this.props.match.params.id
+		})
 	}
+
 	handleInputChange(e) {
 		const name = e.target.name
 		const value = e.target.value
@@ -39,7 +46,7 @@ class AddVisit extends Component {
 				<div className='box padded'>
 					<label>
 					   Date of Visit *
-						<input type='date' name='date' value={date_info}/>
+						<input type='date' name='date' value={this.state.date_info}/>
 					</label>
 
 					<label>
