@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>X in hamburger</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MOBLE-Wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="5.2-Hamburger-Menu-Copy" transform="translate(-285.000000, -19.000000)" stroke="#000000" stroke-width="5">
+            <g id="X-in-hamburger" transform="translate(288.000000, 22.000000)">
+                <path d="M0.5,0.5 L27.3793601,27.3793601" id="Line-2"></path>
+                <path d="M0.5,0.5 L27.3793601,27.3793601" id="Line-2-Copy" transform="translate(14.000000, 14.000000) scale(-1, 1) translate(-14.000000, -14.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
