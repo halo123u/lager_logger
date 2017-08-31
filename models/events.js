@@ -4,7 +4,7 @@ const Events = {}
 
 Events.findAll = () => {
     return db.query(`
-    SELECT * FROM visits
+    SELECT * FROM events
     `)
 }
 
