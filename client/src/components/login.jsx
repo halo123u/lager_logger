@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import loginDiv from '../symbols/login_div.svg';
+import logo from '../symbols/logo.png';
 
 class Login extends Component{
     constructor(){
@@ -32,7 +34,10 @@ class Login extends Component{
     }
     render(){
         return(
-            <div>
+            <div className='login'>
+                <img id='login-bkg' src={loginDiv} />
+                <img id='logo-small' src={logo} />
+
                 <form onSubmit={this.handleSubmit}>
                     <label>Username</label>
                     <input name="username" required value={this.state.username} onChange={this.handleInputChange}/>
