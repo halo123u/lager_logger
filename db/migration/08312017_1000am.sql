@@ -1,3 +1,5 @@
+\c lagger_dev
+
 DROP TABLE IF EXISTS sales;
 DROP TABLE IF EXISTS events;
 DROP TABLE IF EXISTS visits;
@@ -12,7 +14,7 @@ CREATE TABLE IF NOT EXISTS employees(
     emp_id SERIAL PRIMARY KEY UNIQUE,
     user_type VARCHAR(15),
     username VARCHAR(25) UNIQUE,
-    pass TEXT,
+    password TEXT,
     first_name VARCHAR(30),
     last_name VARCHAR(30),
     email VARCHAR(50),
@@ -58,7 +60,8 @@ CREATE TABLE IF NOT EXISTS visits(
     visit_id SERIAL PRIMARY KEY UNIQUE,
     date_info VARCHAR(25),
     account_id INT REFERENCES accounts(account_id),
-    employee_id INT REFERENCES employees(emp_id)
+    employee_id INT REFERENCES employees(emp_id),
+    additional_info TEXT
 );
 
 CREATE TABLE IF NOT EXISTS events (
@@ -66,11 +69,13 @@ CREATE TABLE IF NOT EXISTS events (
     event_name VARCHAR(100),
     account_id INT REFERENCES accounts(account_id),
     employee_id INT REFERENCES employees(emp_id),
+    date_info VARCHAR(25),
+    time_info VARCHAR(25),
     street VARCHAR(100),
     state VARCHAR(2),
     city VARCHAR(50),
-    neighborhood VARCHAR(50),
-    zipcode INT
+    zipcode INT,
+    additional_info VARCHAR(1050)
 );
 
 CREATE TABLE IF NOT EXISTS sales(

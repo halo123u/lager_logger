@@ -4,7 +4,7 @@ const Events = {}
 
 Events.findAll = () => {
     return db.query(`
-    SELECT * FROM visits
+    SELECT * FROM events
     `)
 }
 
@@ -14,29 +14,33 @@ Events.create = events => {
     (event_name,
     account_id,
     employee_id,
-    street,
+    date_info,
+    time_info,
     state,
+    street,
     city,
-    neighborhood,
-    zipcode)
+    zipcode,
+    additional_info)
     VALUES
-    ($1, $2, $3, $4, $5, $6, $7, $8)
+    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
     RETURNING *
     `, [events.event_name,
         events.account_id,
         events.employee_id,
+        events.date_info,
+        events.time_info,
+        events. state,
         events.street,
-        events.state,
         events.city,
-        events.neighborhood,
-        events.zipcode])
+        events.zipcode,
+        events.additional_info])
 }
 
-Events.findById = id => {
+Events.findById = event_id => {
     return db.one (`
     SELECT * FROM events
     WHERE event_id = $1 
-    `, [id]);
+    `, [event_id]);
 }
 
 Events.findByEventName = event_name => {
@@ -81,13 +85,6 @@ Events.findByCity = city => {
     `, [city])
 }
 
-Events.findByNeighborhood = neighborhood => {
-    return db.query(`
-    SELECT * FROM events
-    WHERE neighborhood = $1
-    `, [neighborhood])
-}
-
 Events.findByZipcode = zipcode => {
     return db.query(`
     SELECT * FROM events
@@ -95,18 +92,20 @@ Events.findByZipcode = zipcode => {
     `, [zipcode])
 }
 
-Events.update = (options, events_id) => {
+Events.update = (options, event_id) => {
     return db.none(`
     UPDATE events SET 
-    event_name = $1,
-    account_id = $2,
-    employee_id = $3,
-    street = $4,
-    state = $5,
-    city = $6,
-    neighborhood = $7,
-    zipcode = $8
-    WHERE event_id = $9
+    event_name= $1,
+    account_id= $2,
+    employee_id= $3,
+    date_info= $4,
+    time_info= $5,
+    state= $6,
+    street= $7,
+    city= $8,
+    zipcode= $9,
+    additional_info = 10
+    WHERE event_id = $11
     `, [options.event_name,
         options.account_id,
         options.employee_id,
@@ -115,13 +114,15 @@ Events.update = (options, events_id) => {
         options.city,
         options.neighborhood,
         options.zipcode,
-        events_id])
+        options.additonal_info,
+        options.date_info,
+        event_id])
 }
 
 Events.delete = (event_id) => {
     return db.none(`
     DELETE FROM events
-    WHERE id = $1
+    WHERE event_id = $1
     `, [event_id])
 }
 

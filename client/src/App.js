@@ -20,7 +20,7 @@ import Login from './components/login';
 import changePassword from './components/change-password'
 import EditNote from './components/edit-note';
 import ViewNote from './components/view-note';
-
+import AddVisit from './components/add-visit';
 
 class App extends Component {
 	constructor(){
@@ -80,16 +80,18 @@ class App extends Component {
 		  <Route exact path='/add-emp' component ={()=> <AddEmpl auth={this.state.auth} user={this.state.user}/>} />
 	      <Route exact path='/accounts' component={Accounts}/>
 		  <Route exact path='/accounts/:id' component={BuyerPage}/>
+		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
 	      <Route path='/add-note' component={AddNote}/>
 	      <Route exact path='/events' component={Events}/>
 	      <Route path='/add-event' component={AddEvent}/>
 	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
-	      <Route path='/buyer' component={BuyerPage}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
         <Route path='/dash' component={Dashboard} />
         <Route path='/change-pass/:emp_id' component={changePassword} />
         <Route path='/edit-note/:note_id' component={EditNote}/>
         <Route path='/view-note/:note_id' component={ViewNote}/>
+        <Route path='/dash' component={Dashboard} />
+	      >
 				</Switch>
 	      </div>
 				</div>

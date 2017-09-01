@@ -15,6 +15,7 @@ class BuyerPage extends Component {
 
 	componentDidMount() {
 		console.log('did mount');
+		console.log(this.props);
 		axios.get(`/accounts/id/${this.props.match.params.id}`)
 		.then(res => {
 			console.log(res.data);
@@ -48,7 +49,7 @@ class BuyerPage extends Component {
 					</div>
 				</div>
 				<div id='add-buttons'>
-					<Link to='/add-visit'><button>Add Visit</button></Link>
+					<Link to={`${this.props.match.params.id}/add-visit/`}><button>Add Visit</button></Link>
 					<Link to='/add-note'><button>Add Note</button></Link>
 					<Link to='/add-order'><button>Add Order</button></Link>
 				</div>
