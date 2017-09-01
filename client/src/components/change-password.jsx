@@ -18,7 +18,6 @@ class changePassword extends Component {
     }
 
     componentDidMount() {
-    	console.log(this.props.match.params.emp_id);
     	let emp_id=this.props.match.params.emp_id	;
         axios.get(`/employees/id/${emp_id}`)
             .then(res => {
@@ -103,7 +102,6 @@ class changePassword extends Component {
         )
       }
     }
-
     render(){
         return(
             <div className="container">
@@ -117,3 +115,6 @@ class changePassword extends Component {
 }
 
 export default changePassword;
+
+//Redirect to dashboard
+

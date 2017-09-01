@@ -29,10 +29,10 @@ const notes={
     },
 
     findById : (note_id) => {
-        return db.manyOrNone(`SELECT n.*,
-                              concat(e.first_name , ' ', e.last_name) as employee_name
-                              FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id
-                              WHERE note_id = $1`, [note_id])
+        return db.one(`SELECT n.*,
+                          concat(e.first_name , ' ', e.last_name) as employee_name
+                          FROM notes n  LEFT JOIN  employees e on n.employee_id = e.emp_id
+                          WHERE note_id = $1`, [note_id])
     },
 
     findAllByType : (note_type) => {
@@ -48,7 +48,7 @@ const notes={
         switch(note.note_type) {
             case "EMP":
                 join=" INNER JOIN employees e2 on n.relationship_id= e2.emp_id    "
-                columnSelect= " concat(e2.first_name , ' ', e2.last_name) as receiver"
+                columnSelect= " concat(e2.first_name , ' ', e2.last_name) as receiver ,account_num "
                 break;
 
             case "ORD":
@@ -83,7 +83,7 @@ const notes={
 
     findAllWithCompany : ()  => {
         return db.query(`
-            SELECT * FROM notes JOIN accounts ON 
+            SELECT * FROM notes JOIN accounts ON
             notes.relationship_id = accounts.account_id
             WHERE notes.note_type = 'ACCOUNT'
         `)
