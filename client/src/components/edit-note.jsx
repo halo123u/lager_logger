@@ -88,7 +88,7 @@ class EditNote extends Component {
 					</div>
 					<div className='buttons'>
                         <button type='submit'>OK</button>
-                        <Link to={`/view-note/${this.props.match.params.note_id}`}>Back</Link>
+                        <Link to={`/view-note/${this.props.match.params.note_id}`}><button>Cancel</button></Link>
 					</div>
 				</form>
 			</div>

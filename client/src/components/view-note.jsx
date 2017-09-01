@@ -38,7 +38,7 @@ class ViewNote extends Component {
                         <h2>{this.state.noteData.content} </h2>
                     </div>
                     <div className='buttons'>
-                        <button type='submit'>Back</button>
+                        <Link to={`/list-note`}><button>Cancel</button></Link>
                     </div>
             </div>
             :<h1>Loading...</h1>

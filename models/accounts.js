@@ -6,18 +6,21 @@ const Account = {
             SELECT * FROM accounts
         `);
     },
+
     findById: id => {
         return db.one(`
             SELECT * FROM accounts
             WHERE account_id = $1`
             ,[id]);
     },
+
     findByAccNum: number =>{
         return db.one(`
             SELECT * FROM accounts
             WHERE account_num = $1`
             ,[number]);
     },
+
     findByCompany: company =>{
         return db.one(`
             SELECT * FROM accounts
@@ -30,10 +33,10 @@ const Account = {
         return db.one(`
             INSERT INTO accounts
             (
-                account_num, 
+                account_num,
                 company,
-                buyer, 
-                street, 
+                buyer,
+                street,
                 state,
                 city,
                 neighborhood,
@@ -51,19 +54,20 @@ const Account = {
             [
                 account.account_num,
                 account.company,
-                account.buyer, 
-                account.street, 
+                account.buyer,
+                account.street,
                 account.state,
                 account.city,
                 account.neighborhood,
-                account.zipcode, 
-                account.phone, 
+                account.zipcode,
+                account.phone,
                 account.email,
-                account.delivery_day, 
+                account.delivery_day,
                 account.delivery_time,
-                account.premises, 
+                account.premises,
                 account.status]);
     },
+
     editAccount: (account,id)=>{
         return db.one(`UPDATE accounts SET
             account_num = $1,
@@ -89,12 +93,41 @@ const Account = {
                 account.delivery_day, account.delivery_time,
                 account.premises, account.status, id])
     },
+
     deleteAccount: id => {
         return db.one(`
             DELETE FROM accounts
             WHERE account_id = $1
             RETURNING *`,[id])
+    },
+
+    infoListAccount:id =>{
+      return db.query(`
+        SELECT content as main_info,
+        date_info as date, '' as time,
+        'NOTE' as info_type
+        FROM notes
+        WHERE note_type ='ACCOUNT' AND relationship_id=$1
+        UNION ALL
+
+        SELECT event_name as main_info,
+        to_char(date_info,'yyyy-MM-dd') as date,
+        to_char(time_info,'HH12:MI:SS') as time,
+        'EVENT' as info_type
+        FROM events
+        WHERE employee_id= $1
+        UNION ALL
+
+
+        SELECT  to_char(cases, 'FM9999'),
+        order_date as date ,
+        '' as time,'ORDERS' as info_type
+        FROM orders
+        WHERE  employee_id= $1
+        fetch first 20 rows only
+        )`
     }
+
 }
 
 module.exports = Account;
