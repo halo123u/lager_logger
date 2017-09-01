@@ -31,23 +31,48 @@ class BuyerPage extends Component {
 	}
 
 	renderAccountInfo() {
-		console.log('render account info')
 		console.log(this.state.accountInfo)
 		return (
 			<div>
-				<h1>{this.state.accountInfo.buyer}</h1>
+				<div className='account-header'>
+					<h1>{this.state.accountInfo.buyer}</h1>
+					<a>Edit</a>
+				</div>
 				<div className='box buyer'>
 					<div className='left'>
-						<p>
-							{this.state.accountInfo.neighborhood || ''}<br/>
-							{this.state.accountInfo.street}<br/>
-							{this.state.accountInfo.city}, {this.state.accountInfo.state}<br/>
-							{this.state.accountInfo.zipcode}
-						</p>
+						<div className='location'>
+							<p className='p-header'>Location</p>
+							<p>
+								{this.state.accountInfo.neighborhood || ''}<br/>
+								{this.state.accountInfo.street}<br/>
+								{this.state.accountInfo.city}, {this.state.accountInfo.state}<br/>
+								{this.state.accountInfo.zipcode}
+							</p>
+						</div>
+						<div className='deliver'>
+							<p className='p-header'>Deliver</p>
+							<p>{this.state.accountInfo.delivery_day}</p>
+							<p>{this.state.accountInfo.delivery_time}</p>
+						</div>
 					</div>
 					<div className='right'>
-						<h3>#RD0956</h3>
-						<a>Edit</a>
+						<div className='account-info'>
+							<p className='p-header'>Account Info</p>
+							<p>##{this.state.accountInfo.account_num}</p>
+							<p>{this.state.accountInfo.status}</p>
+							<p>{this.state.accountInfo.premises ? 'on-premises' : 'off-premises' }</p>
+						</div>
+
+						<div className='contact'>
+							<p className='p-header'>Contact</p>
+							<p>{this.state.accountInfo.buyer}</p>
+							<p>{this.state.accountInfo.phone}</p>
+							<p>{this.state.accountInfo.email}</p>
+
+						</div>
+
+						
+						
 					</div>
 				</div>
 				<div id='add-buttons'>

@@ -97,8 +97,6 @@ class RecentActivity extends Component {
 		console.log('render activity')
 		if (this.props.accountInfo) {
 			console.log('true')
-			/*let filtered = this.state.allActivity.filter(activity => activity.account_id === this.props.accountInfo.account_id)
-			console.log(filtered);*/
 			return this.state.allActivity.filter(activity => activity.account_id === this.props.accountInfo.account_id)
 			.map(this.renderCompanyActivity);
 		} else {
