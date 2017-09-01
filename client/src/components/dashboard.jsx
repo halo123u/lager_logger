@@ -6,7 +6,8 @@ class Dashboard extends Component {
 		return (
 			<main>
 				<h1>Dashboard</h1>
-				<div className='box'>
+				<div className='box padded'>
+					<p>Sales Review</p>
 					<div id='dummy-img'></div>
 				</div>
 
