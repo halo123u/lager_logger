@@ -25,17 +25,32 @@ nav {
 nav img {
   margin: 0 16px;
 }
+#menu-container {
+  background-color: orange;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#menu-side {
+  background-color: black;
+  order: 2;
+  width: 20%;
+}
 
 #menu {
   background-color: #444444;
-  width: 94vw;
-  height: 100vh;
-  position: fixed;
+  height: 100%;
   top: 0;
   padding-top: 65px;
   left: 0;
   display: block;
   z-index: 100;
+  width: 80vw;
 }
 
 #menu img {
