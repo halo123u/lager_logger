@@ -102,8 +102,7 @@ const Account = {
     },
 
     infoListAccount:id =>{
-      return db.query(`
-        SELECT content as main_info,
+      return db.query(`SELECT content as main_info,
         date_info as date, '' as time,
         'NOTE' as info_type
         FROM notes
@@ -125,7 +124,8 @@ const Account = {
         FROM orders
         WHERE  employee_id= $1
         fetch first 20 rows only
-        )`
+        `
+        )
     }
 
 }
