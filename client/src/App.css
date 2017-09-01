@@ -25,17 +25,32 @@ nav {
 nav img {
   margin: 0 16px;
 }
+#menu-container {
+  background-color: orange;
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+#menu-side {
+  background-color: black;
+  order: 2;
+  width: 20%;
+}
 
 #menu {
   background-color: #444444;
-  width: 94vw;
-  height: 100vh;
-  position: fixed;
+  height: 100%;
   top: 0;
   padding-top: 65px;
   left: 0;
   display: block;
   z-index: 100;
+  width: 80vw;
 }
 
 #menu img {
@@ -113,7 +128,9 @@ p {
 }
 
 .account {
-  padding: 20px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .content {
@@ -261,14 +278,15 @@ a {
   padding: 20px 10px 15px 10px;
 }
 
-input[type=text],input[type=number],input[type=date],input[type=time] {
+input[type=text],input[type=number],input[type=date],input[type=time],.login input {
   border: 1px solid #979797;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
   border-radius: 3px;
   display: block;
   text-align: left;
+  /*margin: 20px auto;*/
+  margin-top: 0;
   font-size: 14px;
-  background-color: #FEFCF9;
 }
 
 
@@ -284,7 +302,7 @@ input[type=time],input[type=date] {
 
 input{
   margin-top: 5px;
-  width: 90%;
+  width: 95%;
   margin-bottom: 15px;
   padding: 8px;
 }
@@ -327,4 +345,41 @@ select {
 
 .date {
   font-weight: 600;
+}
+
+#login-bkg {
+  position: absolute;
+  width: 100%;
+  top: -55px;
+  left: 0;
+  height: auto;
+  margin: 50px auto;
+  z-index: -5;
+}
+
+.login {
+  position: relative;
+  margin: 50px 10px;
+  align-self: center;
+  padding: 10px;
+  text-align: center;
+  margin-top: 20vh;
+}
+
+.login form {
+  text-align: left;
+  margin: -10px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 200px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+
+.long {
+  margin-top: 8px;
+  width: 100%; 
 }

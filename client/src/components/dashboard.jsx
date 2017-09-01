@@ -6,10 +6,12 @@ class Dashboard extends Component {
 		return (
 			<main>
 				<h1>Dashboard</h1>
-				<div className='box'>
+				<div className='box padded'>
+					<p>Sales Review</p>
 					<div id='dummy-img'></div>
 				</div>
 
+				<a href='/events'>
 				<div className='box'>
 					<h2>Upcoming</h2>
 					<ul>
@@ -18,6 +20,7 @@ class Dashboard extends Component {
 						<li><span>5/28/18</span>Race To Remember</li>
 					</ul>
 				</div>
+				</a>
 				<RecentActivity />
 			</main>
 		);
