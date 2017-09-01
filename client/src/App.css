@@ -113,7 +113,9 @@ p {
 }
 
 .account {
-  padding: 20px;
+  padding: 25px 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .content {
