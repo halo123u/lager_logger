@@ -43,7 +43,7 @@ class Login extends Component{
                     <input name="username" required value={this.state.username} onChange={this.handleInputChange}/>
                     <label>Password</label>
                     <input name="password" type="password" required value={this.state.password} onChange={this.handleInputChange}/>
-                    <button >Login</button>
+                    <button className='long'>Login</button>
                 </form>
             </div>
         )
