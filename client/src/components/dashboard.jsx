@@ -10,6 +10,7 @@ class Dashboard extends Component {
 					<div id='dummy-img'></div>
 				</div>
 
+				<a href='/events'>
 				<div className='box'>
 					<h2>Upcoming</h2>
 					<ul>
@@ -18,6 +19,7 @@ class Dashboard extends Component {
 						<li><span>5/28/18</span>Race To Remember</li>
 					</ul>
 				</div>
+				</a>
 				<RecentActivity />
 			</main>
 		);
