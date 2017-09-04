@@ -17,13 +17,17 @@ class Nav extends Component {
 
 	menu() {
 		return (
-			<div id='menu'>
+ 			<div id='menu-container'>
+				<div id='menu'>
 				<Link to='/dash' onClick={this.toggleMenu}>Dashboard</Link>
 				<Link to='/accounts' onClick={this.toggleMenu}>Accounts</Link>
 				<Link to='/events' onClick={this.toggleMenu}>Calendar</Link>
 				<Link to='/change-password' onClick={this.toggleMenu}>Change Pass</Link>
 				<Link to='/' onClick={this.toggleMenu}>Inventory</Link>
 				<a onClick={this.toggleMenu} id='close'>Close</a>
+				</div>
+				<div onClick={this.toggleMenu} id='menu-side'>
+				</div>
 			</div>
 		)
 	}

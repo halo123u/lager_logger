@@ -19,8 +19,10 @@ class AdminDashboard extends Component {
         return(
         <div>
             {this.state.redirect? <Redirect to='/'/>: null}
-            <h1>this is the admin account page</h1>
-            <Link to='/add-emp'>Add employee</Link>
+            <h1>Admin Page</h1>
+            <div className='box'>
+                <Link to='/add-emp'><button className='long'>Create New Employee</button></Link>
+            </div>
         </div>)
     }
 }
