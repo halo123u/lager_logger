@@ -101,7 +101,7 @@ const Account = {
             RETURNING *`,[id])
     },
 
-    infoListAccount:id =>{
+    getInfoListAccount:id =>{
       return db.query(`SELECT content as main_info,
         date_info as date, '' as time,
         'NOTE' as info_type
@@ -120,11 +120,13 @@ const Account = {
 
         SELECT  to_char(cases, 'FM9999'),
         order_date as date ,
-        '' as time,'ORDERS' as info_type
+        '' as time,
+        'ORDERS' as info_type
         FROM orders
         WHERE  employee_id= $1
+        ORDER BY date
         fetch first 20 rows only
-        `
+        `,[id]
         )
     }
 

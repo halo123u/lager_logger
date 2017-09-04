@@ -21,6 +21,7 @@ import changePassword from './components/change-password'
 import EditNote from './components/edit-note';
 import ViewNote from './components/view-note';
 import AddVisit from './components/add-visit';
+import recentList from './components/list-info';
 
 class App extends Component {
 	constructor(){
@@ -81,7 +82,6 @@ class App extends Component {
 	      <Route exact path='/accounts' component={Accounts}/>
 		  <Route exact path='/accounts/:id' component={BuyerPage}/>
 		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
-	      <Route path='/add-note' component={AddNote}/>
 	      <Route exact path='/events' component={Events}/>
 	      <Route path='/add-event' component={AddEvent}/>
 	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
@@ -91,11 +91,19 @@ class App extends Component {
         <Route path='/edit-note/:note_id' component={EditNote}/>
         <Route path='/view-note/:note_id' component={ViewNote}/>
         <Route path='/dash' component={Dashboard} />
-	      >
-				</Switch>
-	      </div>
-				</div>
-			</Router>
+        >
+        <Route path='/info/:account_id' component={recentList} />
+        >
+
+        <Route path='/accounts/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="EMP" id={props.match.params.id} url={props.match.url} />}/>
+        <Route path='/edit-note/:note_id' component={EditNote}/>
+        <Route path='/view-note/:note_id' component={ViewNote}/>
+
+
+        </Switch>
+	    </div>
+		</div>
+		</Router>
     );
   }
 }

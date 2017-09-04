@@ -29,17 +29,26 @@ class ViewNote extends Component {
             (this.state.dataLoaded) ?
             <div>
                 <h1>View Note</h1>
-                    <Link to={`/edit-note/${this.props.match.params.note_id}`}>Edit</Link>
-                    <div className='box note'>
-                        <h2>{this.state.noteData.date_info} </h2>
-                        <h2>{this.state.noteData.date_info} </h2>
+                <div className='right'>
+                   <Link to={`/edit-note/${this.props.match.params.note_id}`}>Edit</Link>
+                </div>
+                <div className='box '>
+                    <div className='left'>
+                        <p>
+                            {this.state.noteData.date_info || ''}<br/>
+                            {this.state.noteData.date_info}<br/>
+                            {this.state.noteData.date_info}<br/>
+                        </p>
                     </div>
-                    <div className='box note'>
-                        <h2>{this.state.noteData.content} </h2>
-                    </div>
-                    <div className='buttons'>
-                        <Link to={`/list-note`}><button>Cancel</button></Link>
-                    </div>
+                </div>
+
+
+                <div className='box note'>
+                    <p>{this.state.noteData.content} </p>
+                </div>
+                <div className='buttons'>
+                    <Link to={`/list-note`}><button>Cancel</button></Link>
+                </div>
             </div>
             :<h1>Loading...</h1>
         );

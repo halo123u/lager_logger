@@ -50,7 +50,7 @@ class BuyerPage extends Component {
 				</div>
 				<div id='add-buttons'>
 					<Link to={`${this.props.match.params.id}/add-visit/`}><button>Add Visit</button></Link>
-					<Link to='/add-note'><button>Add Note</button></Link>
+					<Link to={`/accounts/${this.props.match.params.id}/add-note`}><button>Add Note</button></Link>
 					<Link to='/add-order'><button>Add Order</button></Link>
 				</div>
 				<RecentActivity />

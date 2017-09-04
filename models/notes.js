@@ -48,7 +48,7 @@ const notes={
         switch(note.note_type) {
             case "EMP":
                 join=" INNER JOIN employees e2 on n.relationship_id= e2.emp_id    "
-                columnSelect= " concat(e2.first_name , ' ', e2.last_name) as receiver ,account_num "
+                columnSelect= " concat(e2.first_name , ' ', e2.last_name) as receiver "
                 break;
 
             case "ORD":
@@ -63,7 +63,7 @@ const notes={
 
             case "ACC":
                 join=" INNER JOIN accounts  a on n.relationship_id= a.account_id "
-                columnSelect= " company as receiver"
+                columnSelect= " company as receiver,account_num "
                 break;
 
             default:

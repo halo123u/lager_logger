@@ -21,10 +21,10 @@ class AddNote extends Component {
     }
 
     componentDidMount() {
-    	let type= "EMP";//this.props.note_type;
-    	let relationship_id= "22" //this.props.rel_id;
-    	let emp_id= 21 //this.props.user_id;
-
+    	let type= this.props.note_type;
+    	let relationship_id=this.props.id; //
+        var emp_id=0;
+        (this.props.user) ?  emp_id=this.props.user.emp_id : "";
         axios.post(`/notes/type/${type}`,{
         		relationship_id,
         	})
@@ -75,7 +75,8 @@ class AddNote extends Component {
 	render () {
 		return (
 			<div>
-				<h1>Add Note</h1>
+
+			    <h1>Add Note</h1>
                 <form onSubmit={(e) => this.handleSubmit(
 	                e,
 					this.state.relationship_id,
@@ -91,6 +92,7 @@ class AddNote extends Component {
 					</div>
 					<div className='buttons'>
 						<button type='submit'>OK</button>
+                        <Link  to={(this.props.url).replace('/add-note','')}>Back</Link>
 					</div>
 				</form>
 			</div>
