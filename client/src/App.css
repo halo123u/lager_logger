@@ -242,6 +242,19 @@ a {
   height: 120px;
 }
 
+.right-text{
+  text-align: right;
+  display: inline-block;
+  width: 50%;
+  align-self: right;
+}
+
+.left-text{
+  text-align: left;
+  display: inline-block;
+  width: 50%;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -327,4 +340,8 @@ select {
 
 .date {
   font-weight: 600;
+}
+
+.main-container{
+  margin-top: 5vh;
 }

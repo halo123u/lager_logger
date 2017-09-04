@@ -9,6 +9,7 @@ class BuyerPage extends Component {
 		this.state = {
 			accountInfo: null,
 			accountInfoLoaded: null,
+			fireRedirect:false,
 		}
 		this.renderAccountInfo = this.renderAccountInfo.bind(this);
 	}
@@ -21,7 +22,8 @@ class BuyerPage extends Component {
 			console.log(res.data);
 			this.setState({
 				accountInfo: res.data,
-				accountInfoLoaded: true
+				accountInfoLoaded: true,
+				fireRedirect:true,
 			})
 			console.log(this.state)
 		}).catch(err => console.log(err));
@@ -50,8 +52,8 @@ class BuyerPage extends Component {
 				</div>
 				<div id='add-buttons'>
 					<Link to={`${this.props.match.params.id}/add-visit/`}><button>Add Visit</button></Link>
-					<Link to={`/accounts/${this.props.match.params.id}/add-note`}><button>Add Note</button></Link>
-					<Link to='/add-order'><button>Add Order</button></Link>
+					<Link to={`/accounts/${this.props.match.params.id}/add-note `}><button>Add Note</button></Link>
+					<Link to={`/accounts/${this.props.match.params.id}/add-order`}><button>Add Order</button></Link>
 				</div>
 				<RecentActivity />
 			</div>

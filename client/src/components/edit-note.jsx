@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect , Link } from 'react-router-dom';
+import Note from '../symbols/note_icon.svg';
 
 class EditNote extends Component {
     constructor() {
@@ -45,7 +46,6 @@ class EditNote extends Component {
 
     handleSubmit(e, note_id, content, date_info, employee_id) {
         e.preventDefault();
-        console.log(note_id, content, date_info, employee_id);
 		axios.put(`/notes/${note_id}`, {
             note_id,
 			content,
@@ -72,8 +72,11 @@ class EditNote extends Component {
 	render () {
 		return (
 			(this.state.dataLoaded) ?
-            <div>
-				<h1>Edit Note</h1>
+            <div className="main-container">
+                <div id='recent-activity'>
+                    <h1>View Note</h1>
+                    <img src={Note} className='icon'/>
+                </div>
                 <form onSubmit={(e) => this.handleSubmit(
 	                e,
                     this.state.note_id,

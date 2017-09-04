@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect , Link } from 'react-router-dom';
+import Note from '../symbols/note_icon.svg';
 
 class AddNote extends Component {
     constructor() {
@@ -40,6 +41,7 @@ class AddNote extends Component {
             }
         )
     }
+
     clearState(){
     	this.setState({
     		content:"",
@@ -74,9 +76,11 @@ class AddNote extends Component {
 
 	render () {
 		return (
-			<div>
-
-			    <h1>Add Note</h1>
+            <div className="main-container">
+                <div id='recent-activity'>
+                    <h1>View Note</h1>
+                    <img src={Note} className='icon'/>
+                </div>
                 <form onSubmit={(e) => this.handleSubmit(
 	                e,
 					this.state.relationship_id,
@@ -88,12 +92,14 @@ class AddNote extends Component {
 					<div className='box note'>
 						<textarea placeholder='text area content'
 						name="content" onChange={this.handleInputChange}>
-						</textarea>
+						{this.state.content}</textarea>
 					</div>
 					<div className='buttons'>
 						<button type='submit'>OK</button>
                         <Link  to={(this.props.url).replace('/add-note','')}>Back</Link>
 					</div>
+                    {this.state.fireRedirect ? (<Redirect to={(this.props.url).replace('/add-note','')}/>): null}
+
 				</form>
 			</div>
 		);
