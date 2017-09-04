@@ -75,7 +75,12 @@ const accountController = {
             console.log(data);
             res.json(data);
         }).catch(err => console.log(err));
-    }
+    },
+    getInfoListAccount: (req,res) => {
+        Account.getInfoListAccount(req.params.id).then(data =>{
+            res.json(data);
+        }).catch(err => console.log(err));
+    },
 
 }
 

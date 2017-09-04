@@ -59,7 +59,7 @@ class RecentActivity extends Component {
 			const xdate = x.date_info || x.order_date;
 			const ydate = y.date_info || y.order_date;
 			return moment(ydate) - moment(xdate);
-		}); 
+		});
 		this.setState({
 			allActivity: all,
 			allDataLoaded: true,
@@ -70,7 +70,7 @@ class RecentActivity extends Component {
 		return (
 			<div className='box activity'>
 				<img src={activity.icon} className='icon'/>
-				<div className='content'>	
+				<div className='content'>
 					<h4>{activity.company}</h4>
 					<p className='date'>{activity.order_date || activity.date_info || ''}</p>
 					<p>{activity.delivery_info || activity.content || ''}</p>

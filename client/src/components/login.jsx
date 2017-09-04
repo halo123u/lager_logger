@@ -30,7 +30,7 @@ class Login extends Component{
         }).then(res =>{
             this.props.handleLogin(res.data);
         });
-        
+
     }
     render(){
         return(
