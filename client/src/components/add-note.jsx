@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect , Link } from 'react-router-dom';
+import Note from '../symbols/note_icon.svg'
 
 class AddNote extends Component {
     constructor() {
@@ -75,8 +76,7 @@ class AddNote extends Component {
 	render () {
 		return (
 			<div>
-
-			    <h1>Add Note</h1>
+				<h1>Create Note <img src={Note}/></h1>
                 <form onSubmit={(e) => this.handleSubmit(
 	                e,
 					this.state.relationship_id,

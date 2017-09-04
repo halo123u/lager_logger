@@ -21,7 +21,7 @@ class RecentActivity extends Component {
 		this.sortByDate = this.sortByDate.bind(this);
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		console.log('did mount')
 		//get orders
 		axios.get('/orders/comps')
@@ -30,26 +30,28 @@ class RecentActivity extends Component {
 				orders: res.data.map(order => {order.icon = Order; return order}),
 				ordersLoaded: true,
 			});
+			axios.get('/visits/comps')
+			.then(res => {
+				this.setState({
+					visits: res.data.map(visit => {visit.icon = Visit; return visit}),
+					visitsLoaded: true,
+				});
+				axios.get('/notes/comps/accounts')
+				.then(res => {
+					this.setState({
+						notes: res.data.map(note => {note.icon = Note; return note}),
+						notesLoaded: true,
+					});
+					this.sortByDate();
+				}).catch(err => console.log(err));
+			}).catch(err => console.log(err));
 		}).catch(err => console.log(err));
 		//get visits
-		axios.get('/visits/comps')
-		.then(res => {
-			this.setState({
-				visits: res.data.map(visit => {visit.icon = Visit; return visit}),
-				visitsLoaded: true,
-			});
-		}).catch(err => console.log(err));
+		
 		//get notes
-		axios.get('/notes/comps/accounts')
-		.then(res => {
-			this.setState({
-				notes: res.data.map(note => {note.icon = Note; return note}),
-				notesLoaded: true,
-			})
-			this.sortByDate();
-		});
+	
 	}
-
+	
 	sortByDate() {
 		console.log('sortByDate')
 		const all = this.state.orders.concat(this.state.notes).concat(this.state.visits);
