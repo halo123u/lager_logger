@@ -109,7 +109,7 @@ class RecentActivity extends Component {
 			<div>
 			<div id='recent-activity'>
 					<h5>Recent Activity</h5>
-					<a>View All</a>
+					<a className='blue'>View All</a>
 			</div>
 				{this.state.allDataLoaded ? this.renderActivity() : ''}
 			</div>

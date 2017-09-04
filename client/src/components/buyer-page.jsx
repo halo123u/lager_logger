@@ -36,7 +36,7 @@ class BuyerPage extends Component {
 			<div>
 				<div className='account-header'>
 					<h1>{this.state.accountInfo.buyer}</h1>
-					<a>Edit</a>
+					<a className='blue'>Edit</a>
 				</div>
 				<div className='box buyer'>
 					<div className='left'>
