@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import moment from 'moment'
 
 class AddOrderVisit extends Component {
 	constructor(){
 		super();
 		this.state = {
-			order: false
+			order: false,
+			delivery_info_time: 10
 		}
 	}
 
@@ -14,6 +17,7 @@ class AddOrderVisit extends Component {
 		console.log('this is where we make an axios post request to /order with this.state')
 		if(this.state.order){
 			// include employee id here also
+			axios.post('/orders', this.state)
 		}
 	}
 

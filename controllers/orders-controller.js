@@ -3,21 +3,24 @@ const ordersController = {}
     
 
 ordersController.create = (req, res) => {
+    console.log(req.body)
     order = {
         refence_number: req.body.refence_number,
         delivery_info: req.body.delivery_info,
         account_id: req.body.account_id,
         order_date: req.body.order_date,
         employee_id: req.body.employee_id,
+        cases: req.body.cases,
+        notes: req.body.notes
     }
-    Orders.create(order)
-    .then( orders => {
-        res.json(orders);
-        console.log(orders)
-    })
-    .catch(err => {
-        res.status(500).json(err);
-    })
+    // Orders.create(order)
+    // .then( orders => {
+    //     res.json(orders);
+    //     console.log(orders)
+    // })
+    // .catch(err => {
+    //     res.status(500).json(err);
+    // })
 }
     
 
