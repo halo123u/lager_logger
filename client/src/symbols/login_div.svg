@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="368px" height="323px" viewBox="0 0 368 323" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M119.002023,60 L8,60 L8,60 C3.581722,60 -1.42926142e-15,63.581722 -8.8817842e-16,68 L0,68 L-8.8817842e-16,307 C1.53497813e-14,311.418278 3.581722,315 8,315 L352,315 C356.418278,315 360,311.418278 360,307 L360,68 C360,63.581722 356.418278,60 352,60 L239.997977,60 C239.729365,26.8169707 212.746402,0 179.5,0 C146.253598,0 119.270635,26.8169707 119.002023,60 Z" id="path-1"></path>
+        <filter x="-1.9%" y="-1.6%" width="103.9%" height="104.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="MOBLE-Wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="0.1-Login" transform="translate(-4.000000, -144.000000)">
+            <g id="Group" transform="translate(8.000000, 146.000000)">
+                <g id="Combined-Shape">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FEFCF9" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

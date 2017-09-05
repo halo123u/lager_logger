@@ -101,12 +101,13 @@ const Account = {
             RETURNING *`,[id])
     },
 
-    infoListAccount:id =>{
+    getInfoListAccount:id =>{
       return db.query(`SELECT content as main_info,
-        date_info as date, '' as time,
+        date_inf  as date,
+        time_info as time,
         'NOTE' as info_type
         FROM notes
-        WHERE note_type ='ACCOUNT' AND relationship_id=$1
+        WHERE note_type ='ACC' AND relationship_id=$1
         UNION ALL
 
         SELECT event_name as main_info,
@@ -114,17 +115,19 @@ const Account = {
         to_char(time_info,'HH12:MI:SS') as time,
         'EVENT' as info_type
         FROM events
-        WHERE employee_id= $1
+        WHERE account_id= $1
         UNION ALL
 
 
         SELECT  to_char(cases, 'FM9999'),
         order_date as date ,
-        '' as time,'ORDERS' as info_type
+        '' as time,
+        'ORDERS' as info_type
         FROM orders
-        WHERE  employee_id= $1
+        WHERE  account_id= $1
+        ORDER BY date
         fetch first 20 rows only
-        `
+        `,[id]
         )
     }
 

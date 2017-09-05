@@ -242,6 +242,19 @@ a {
   height: 120px;
 }
 
+.right-text{
+  text-align: right;
+  display: inline-block;
+  width: 50%;
+  align-self: right;
+}
+
+.left-text{
+  text-align: left;
+  display: inline-block;
+  width: 50%;
+}
+
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -322,14 +335,19 @@ select {
   display: flex;
   justify-content: space-between;
   margin: 0 30px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .date {
   font-weight: 600;
 }
 
+
 .box h4 {
   display: flex;
   justify-content: flex-end;
+}
+
+.main-container{
+  margin-top: 5vh;
 }

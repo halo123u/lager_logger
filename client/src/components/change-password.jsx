@@ -18,7 +18,8 @@ class changePassword extends Component {
     }
 
     componentDidMount() {
-    	let emp_id=this.props.match.params.emp_id	;
+        var emp_id=0;
+        (this.props.user) ?  emp_id=this.props.user.emp_id : "";
         axios.get(`/employees/id/${emp_id}`)
             .then(res => {
                 this.setState({
@@ -106,9 +107,7 @@ class changePassword extends Component {
         return(
             <div className="container">
 				{this.renderUserPassword()}
-				{this.state.fireRedirect
-				? ""
-				: ""}
+				{this.state.fireRedirect ? (<Redirect to="/admin-dash"/>): null}
             </div>
         )
     }
