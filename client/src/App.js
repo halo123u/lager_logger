@@ -64,7 +64,7 @@ class App extends Component {
 			auth: response.auth,
 			user: response.user,
 			redirect: true,
-			currentPage: '/add-account'
+			currentPage: '/dash'
 		});
 		}
 	}
