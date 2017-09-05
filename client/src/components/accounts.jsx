@@ -8,7 +8,8 @@ class Accounts extends Component {
 		this.state = {
 			accounts : null,
 			accountsLoaded: false,
-			redirect: false
+			redirect: false,
+			page:'/'
 		}
 		this.renderAccount = this.renderAccount.bind(this);
 	}
@@ -28,24 +29,33 @@ class Accounts extends Component {
 				});
 			}).catch(err => console.log(err));
 		}
-}
+	}
+	
+	handleSingleAccount = (id)=>{
+		this.setState({
+			redirect: true,
+			page:`/accounts/${id}`
+		},()=>{
+			this.props.handleSelect(id);
+		});
+	}
 
 
 	renderAccount(account) {
 		return( 
-			<Link to={`/accounts/${account.account_id}`} key={account.account_id}>
-				<div className='box account'>
+			// <Link to={`/accounts/${account.account_id}`} key={account.account_id}>
+				<div onClick={()=>this.handleSingleAccount(account.account_id)} className='box account' key={account.account_id}>
 					<h3>{account.company}</h3>
 					<h3>#{account.account_num}</h3>
 				</div>
-			</Link>
+			// </Link>
 		)	
 	}
 
 	render () {
 		return (
 			<div id='accounts'>
-				{this.state.redirect? <Redirect to='/'/>: null}	
+				{this.state.redirect? <Redirect to={this.state.page}/>: null}	
 				<Link to='/add-account'><button>Add Account</button></Link>
 				<div id='recent-activity'>
 					<h5>Recent Activity</h5>

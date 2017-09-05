@@ -8,7 +8,7 @@ import {
 import Nav from './components/nav';
 import Dashboard from './components/dashboard';
 import AdminDashboard from './components/admin-dashboard';
-import BuyerPage from './components/buyer-page';
+import BuyerPage from './components/account-single';
 import AddEmpl from './components/add-emp';
 import AddNote from './components/add-note';
 import AddOrderVisit from './components/add-order-visit';
@@ -32,7 +32,8 @@ class App extends Component {
 			auth:false,
 			user:null,
 			currentPage: '/',
-			redirect: false
+			redirect: false,
+			selectedAccount: null
 		}
 	}
 	componentWillUpdate = (prevState, nextState) => {
@@ -70,6 +71,13 @@ class App extends Component {
 		}
 	}
 
+	handleSelectedAcc = (id) =>{
+		console.log(id);
+		this.setState({
+			selectedAccount: id
+		});
+	}
+
   render() {
     return (
 			<Router>
@@ -81,8 +89,8 @@ class App extends Component {
 	      <Route exact path='/' component={()=><Login handleLogin={this.handleLogin}/>}/>
 		  <Route exact path='/admin-dash' component={()=> <AdminDashboard auth={this.state.auth} user={this.state.user} />} />
 		  <Route exact path='/add-emp' component ={()=> <AddEmpl auth={this.state.auth} user={this.state.user}/>} />
-	      <Route exact path='/accounts' component={() => <Accounts  auth={this.state.auth} user={this.state.user} />}/>
-		  <Route exact path='/accounts/:id' component={() =>  <BuyerPage auth={this.state.auth} user={this.state.user}/>}/>
+	      <Route exact path='/accounts' component={() => <Accounts  auth={this.state.auth} user={this.state.user} handleSelect = {this.handleSelectedAcc}/>}/>
+		  <Route exact path='/accounts/:id' component={() =>  <BuyerPage auth={this.state.auth} user={this.state.user} accId={this.state.selectedAccount}/>}/>
 		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
 	      <Route exact path='/events' component={Events}/>
 				<Route path='/events/:event_id' component={EventsSingle} />
