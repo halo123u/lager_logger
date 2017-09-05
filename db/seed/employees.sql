@@ -1,3 +1,4 @@
+\c lagger_dev
 INSERT INTO employees (
     user_type,username,password,
     first_name, last_name,email,phone)

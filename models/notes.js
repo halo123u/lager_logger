@@ -2,6 +2,7 @@ const db = require('../db/config');
 const notes={
     create : (note) => {
         var d = new Date();
+        console.log(note.employee_id)
         return db.one(`INSERT INTO notes
                     (relationship_id,
                     note_type,

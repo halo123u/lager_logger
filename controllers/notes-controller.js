@@ -2,6 +2,8 @@ const Notes = require("../models/notes")
 
 const notesController= {
     create :function(req,res){
+        console.log('this is the body of ther request')
+        console.log(req.body);
         Notes.create({
             relationship_id:req.body.relationship_id,
             note_type:req.body.note_type,

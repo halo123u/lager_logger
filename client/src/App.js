@@ -91,13 +91,13 @@ class App extends Component {
 		  <Route exact path='/add-emp' component ={()=> <AddEmpl auth={this.state.auth} user={this.state.user}/>} />
 	      <Route exact path='/accounts' component={() => <Accounts  auth={this.state.auth} user={this.state.user} handleSelect = {this.handleSelectedAcc}/>}/>
 		  <Route exact path='/accounts/:id' component={() =>  <BuyerPage auth={this.state.auth} user={this.state.user} accId={this.state.selectedAccount}/>}/>
-		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
+		  <Route path='/add-visit' component={()=><AddVisit auth={this.state.auth} user={this.state.user} accId={this.state.selectedAccount}/>} />
 	      <Route exact path='/events' component={Events}/>
 				<Route path='/events/:event_id' component={EventsSingle} />
 	      <Route path='/add-event' component={AddEvent}/>
 				<Route path='/edit-event/:event_id' component={EditEvent}/>
 	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
-	      <Route path='/add-order-visit' component={AddOrderVisit}/>
+	      <Route path='/add-order' component={() => <AddOrderVisit currentState={this.state}/>}/>
         <Route path='/dash' component={()=> <Dashboard  auth={this.state.auth} user={this.state.user}/>} />
 
         <Route path='/change-password' component={(props) => <ChangePassword  user={this.state.user} note_type="ACC" />}/>

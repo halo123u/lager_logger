@@ -10,6 +10,7 @@ class BuyerPage extends Component {
 			accountInfo: null,
 			accountInfoLoaded: null,
 			fireRedirect:false,
+			page: '/'
 		}
 		this.renderAccountInfo = this.renderAccountInfo.bind(this);
 	}
@@ -30,7 +31,20 @@ class BuyerPage extends Component {
 			})
 			console.log(this.state)
 		}).catch(err => console.log(err));
+		}
 	}
+
+	handleRedirect = (page)=>{
+		console.log(page);
+		// /accounts/:id/add-visit' /accounts/:id/add-visit' 
+		const url = `/add-${page}`;
+		console.log(url);
+		this.setState({
+			page: url,
+			fireRedirect: true
+		}, ()=>{
+			console.log(this.state.page);
+		});
 	}
 
 	renderAccountInfo() {
@@ -83,9 +97,9 @@ class BuyerPage extends Component {
 					</div>
 				</div>
 				<div id='add-buttons'>
-					<Link to={`${this.props.accId}/add-visit/`}><button>+ Visit</button></Link>
-					<Link to={`/accounts/${this.props.accId}/add-note `}><button>+ Note</button></Link>
-					<Link to={`/accounts/${this.props.accId}/add-order`}><button>+ Order</button></Link>
+					<button onClick={()=>this.handleRedirect('visit')}>Add Visit</button>
+					<button onClick={()=>this.handleRedirect('notes')}>Add Note</button>
+					<button onClick={()=>this.handleRedirect('order')}>Add Order</button>
 				</div>
 				<RecentActivity />
 			</div>
@@ -95,7 +109,7 @@ class BuyerPage extends Component {
 	render () {
 		return (
 			<div>
-								{this.state.fireRedirect? <Redirect to='/'/>: null}	
+								{this.state.fireRedirect? <Redirect to={`${this.state.page}`}/>: null}	
 			{this.state.accountInfoLoaded ? this.renderAccountInfo() : <h1>loading</h1>}
 			</div>
 		)
