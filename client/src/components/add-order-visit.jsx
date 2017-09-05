@@ -15,10 +15,18 @@ class AddOrderVisit extends Component {
 	handleFormSubmission = (e) => {
 		e.preventDefault();
 		console.log('this is where we make an axios post request to /order with this.state')
+		
 		if(this.state.order){
 			// include employee id here also
 			axios.post('/orders', this.state)
 		}
+	}
+
+	componentDidMount(){
+		console.log('mounted')
+		this.setState({
+			user: this.props.currentState.user
+		})
 	}
 
 	handleOrder = (e) => {
