@@ -93,7 +93,6 @@ class App extends Component {
 						<Route path='/change-password' component={(props) => <ChangePassword  user={this.state.user} note_type="ACC" />}/>
 						<Route path='/edit-note/:note_id' component={EditNote}/>
 						<Route path='/view-note/:note_id' component={ViewNote}/>
-						<Route path='/dash' component={Dashboard} />
 						<Route path='/info/:account_id' component={recentList} />
 						<Route path='/add-emp/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="EMP" id={props.match.params.id} url={props.match.url} />}/>
 						<Route path='/orders/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ORD" id={props.match.params.id} url={props.match.url} />}/>

@@ -34,8 +34,6 @@ class AddOrderVisit extends Component {
 		})
 	}
 	handleInput = e => {
-		// console.log(e.target.name)
-		// console.log(e.target.value)
 		let name = e.target.name 
 		let value = e.target.value 
 		this.setState({
