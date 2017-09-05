@@ -21,6 +21,8 @@ import ChangePassword from './components/change-password'
 import EditNote from './components/edit-note';
 import ViewNote from './components/view-note';
 import AddVisit from './components/add-visit';
+import EventsSingle from './components/event-single';
+import EditEvent from './components/edit-event';
 import recentList from './components/list-info';
 
 class App extends Component {
@@ -83,7 +85,9 @@ class App extends Component {
 		  <Route exact path='/accounts/:id' component={BuyerPage}/>
 		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
 	      <Route exact path='/events' component={Events}/>
+				<Route path='/events/:event_id' component={EventsSingle} />
 	      <Route path='/add-event' component={AddEvent}/>
+				<Route path='/edit-event/:event_id' component={EditEvent}/>
 	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
         <Route path='/dash' component={Dashboard} />
