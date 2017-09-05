@@ -38,43 +38,54 @@ class BuyerPage extends Component {
 		console.log(this.state.accountInfo)
 		return (
 			<div>
-				<h1>{this.state.accountInfo.company}</h1>
+				<div className='account-header'>
+					<h1>{this.state.accountInfo.buyer}</h1>
+					<a className='blue'>Edit</a>
+				</div>
 				<div className='box buyer'>
 					<div className='left'>
-						<b>Location</b>
-						<p>
-							{this.state.accountInfo.neighborhood || ''}<br/>
-							{this.state.accountInfo.street}<br/>
-							{this.state.accountInfo.city}, {this.state.accountInfo.state}<br/>
-							{this.state.accountInfo.zipcode} <br/>
+						<div>
+							<b>Location</b>
+							<p>
+								{this.state.accountInfo.neighborhood || ''}<br/>
+								{this.state.accountInfo.street}<br/>
+								{this.state.accountInfo.city}, {this.state.accountInfo.state}<br/>
+								{this.state.accountInfo.zipcode} <br/>
+							</p>
+							</div>
+							<div>
+
 							<b>Deliver</b> <br/>
+							<p>
 							{this.state.accountInfo.delivery_day} <br/>
 							{this.state.accountInfo.delivery_time}
-						</p>
+							</p>
+							</div>
+					
 					</div>
 					<div className='right'>
-					
+						<div>
 						<p>
 							<b>Account Number</b> <br/>
 							#RD{this.state.accountInfo.account_num} <br/>
 							Current <br/>
 							{this.state.accountInfo.premises ? 'On Premises' : 'Off Premises'} <br/>
 						</p>
+						</div>
+						<div>
 						<p>
 							<b>Contact</b> <br/>
 							{this.state.accountInfo.buyer} <br/>
 							{this.state.accountInfo.email} <br/>
-							{this.state.accountInfo.phone}
-
-								
+							{this.state.accountInfo.phone}								
 						</p>
-						<a>Edit</a>
+						</div>
 					</div>
 				</div>
 				<div id='add-buttons'>
-					<Link to={`${this.props.accId}/add-visit/`}><button>Add Visit</button></Link>
-					<Link to={`/accounts/${this.props.accId}/add-note `}><button>Add Note</button></Link>
-					<Link to={`/accounts/${this.props.accId}/add-order`}><button>Add Order</button></Link>
+					<Link to={`${this.props.accId}/add-visit/`}><button>+ Visit</button></Link>
+					<Link to={`/accounts/${this.props.accId}/add-note `}><button>+ Note</button></Link>
+					<Link to={`/accounts/${this.props.accId}/add-order`}><button>+ Order</button></Link>
 				</div>
 				<RecentActivity />
 			</div>
