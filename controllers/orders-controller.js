@@ -13,14 +13,14 @@ ordersController.create = (req, res) => {
         cases: req.body.cases,
         notes: req.body.notes
     }
-    // Orders.create(order)
-    // .then( orders => {
-    //     res.json(orders);
-    //     console.log(orders)
-    // })
-    // .catch(err => {
-    //     res.status(500).json(err);
-    // })
+    Orders.create(order)
+    .then( orders => {
+        res.json(orders);
+        console.log(orders)
+    })
+    .catch(err => {
+        res.status(500).json(err);
+    })
 }
     
 
