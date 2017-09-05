@@ -32,24 +32,22 @@ class RecentActivity extends Component {
 				orders: res.data.map(order => {order.icon = Order; return order}),
 				ordersLoaded: true,
 			});
+			axios.get('/visits/comps')
+			.then(res => {
+				this.setState({
+					visits: res.data.map(visit => {visit.icon = Visit; return visit}),
+					visitsLoaded: true,
+				});
+				axios.get('/notes/comps/accounts')
+				.then(res => {
+					this.setState({
+						notes: res.data.map(note => {note.icon = Note; return note}),
+						notesLoaded: true,
+					})
+					this.sortByDate();
+				}).catch(err => console.log(err));
+			}).catch(err => console.log(err));
 		}).catch(err => console.log(err));
-		//get visits
-		axios.get('/visits/comps')
-		.then(res => {
-			this.setState({
-				visits: res.data.map(visit => {visit.icon = Visit; return visit}),
-				visitsLoaded: true,
-			});
-		}).catch(err => console.log(err));
-		//get notes
-		axios.get('/notes/comps/accounts')
-		.then(res => {
-			this.setState({
-				notes: res.data.map(note => {note.icon = Note; return note}),
-				notesLoaded: true,
-			})
-			// this.sortByDate();
-		});
 	}
 
 	sortByDate() {
@@ -67,6 +65,8 @@ class RecentActivity extends Component {
 	}
 
 	renderAllActivity(activity) {
+		//console.log('render all activity')
+		console.log(activity);
 		return (
 			<div className='box activity'>
 				<img src={activity.icon} className='icon'/>
@@ -86,7 +86,7 @@ class RecentActivity extends Component {
 			<div className='box activity'>
 				<img src={activity.icon} className='icon'/>
 				<div className='content'>	
-					<p className='date'>{date ? moment(date).format('MM/DD/YY') : ''}</p>
+					<p className='date'>{date ? moment(date).format('MM/DD/YYYY') : ''}</p>
 					<p>{activity.delivery_info || activity.content || ''}</p>
 				</div>
 			</div>
