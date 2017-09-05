@@ -98,7 +98,7 @@ class BuyerPage extends Component {
 				</div>
 				<div id='add-buttons'>
 					<button onClick={()=>this.handleRedirect('visit')}>Add Visit</button>
-					<button onClick={()=>this.handleRedirect('notes')}>Add Note</button>
+					<button onClick={()=>this.handleRedirect('note')}>Add Note</button>
 					<button onClick={()=>this.handleRedirect('order')}>Add Order</button>
 				</div>
 				<RecentActivity />

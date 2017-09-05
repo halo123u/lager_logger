@@ -113,7 +113,7 @@ class App extends Component {
 
         <Route path='/orders/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ORD" id={props.match.params.id} url={props.match.url} />}/>
 
-        <Route path='/accounts/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ACC" id={props.match.params.id} url={props.match.url} />}/>
+        <Route path='/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ACC" id={this.state.selectedAccount} url={props.match.url} />}/>
         <Route path='/edit-note/:note_id' component={EditNote}/>
         <Route path='/view-note/:note_id' component={ViewNote}/>
 
