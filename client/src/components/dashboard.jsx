@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import RecentActivity from './recent-activity';
+import graph from '../symbols/bar_graph.svg'
 
 class Dashboard extends Component {
 	constructor() {
@@ -25,8 +26,7 @@ class Dashboard extends Component {
 				{this.state.redirect? <Redirect to='/'/>: null}
 				<h1>Dashboard</h1>
 				<div className='box padded'>
-					<p>Sales Review</p>
-					<div id='dummy-img'></div>
+					<img src={graph} />
 				</div>
 
 				<a href='/events'>

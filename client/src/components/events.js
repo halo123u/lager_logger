@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import Calendar from '../symbols/calendar_month.svg'
 import ViewEvent from './view-event';
 
 class Events extends Component {
@@ -40,7 +40,12 @@ class Events extends Component {
 		return (
 			<div>
 				<h1>Calendar</h1>
-        		<Link to={'/add-event'}><button>Add Event</button></Link>
+				<div id='button-container'>
+        		<Link to={'/add-event'}><button className='large-button'>Create Event</button></Link>
+        		</div>
+        <div className='box'> 
+        	<img src={Calendar} />
+        </div>
 				{this.renderEvent()}
 			</div>
 		);

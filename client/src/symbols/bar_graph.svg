@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="316px" height="227px" viewBox="0 0 316 227" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Demographics</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MOBLE-Wireframes" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1.0-Dashboard-Copy" transform="translate(-35.000000, -124.000000)">
+            <g id="Demographics" transform="translate(29.000000, 118.000000)">
+                <g id="Background" transform="translate(2.000000, 53.000000)">
+                    <path d="M27.1175373,146.125 L299.525381,146.125" id="Line" stroke="#232425" stroke-width="0.85" opacity="0.2" stroke-linecap="square"></path>
+                    <path d="M27.1175373,99.625 L299.525381,99.625" id="Line" stroke="#232425" stroke-width="0.85" opacity="0.2" stroke-linecap="square"></path>
+                    <path d="M27.1175373,52.375 L299.525381,52.375" id="Line" stroke="#232425" stroke-width="0.85" opacity="0.2" stroke-linecap="square"></path>
+                    <path d="M27.1175373,5.875 L299.525381,5.875" id="Line" stroke="#232425" stroke-width="0.85" opacity="0.2" stroke-linecap="square"></path>
+                    <text id="Mon." opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="40.2144976" y="165.852941">Mon.</tspan>
+                    </text>
+                    <text id="Tues." opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="83.9609652" y="165.852941">Tues.</tspan>
+                    </text>
+                    <text id="Weds." opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="127.164562" y="165.852941">Weds.</tspan>
+                    </text>
+                    <text id="Thurs." opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="172.816059" y="165.852941">Thurs</tspan>
+                        <tspan x="184.652143" y="179.852941">.</tspan>
+                    </text>
+                    <text id="Fri." opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="223.368337" y="165.852941">Fri.</tspan>
+                    </text>
+                    <text id="Sat." opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="264.442337" y="165.852941">Sat.</tspan>
+                    </text>
+                    <text id="10" opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="5.19719348" y="104.352941">10</tspan>
+                    </text>
+                    <text id="0" opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="11.3986576" y="150.852941">0</tspan>
+                    </text>
+                    <text id="20" opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="5.19719348" y="57.8529412">20</tspan>
+                    </text>
+                    <text id="30" opacity="0.5" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                        <tspan x="5.19719348" y="11.3529412">30</tspan>
+                    </text>
+                </g>
+                <g id="Graph_bar" transform="translate(43.000000, 72.000000)" fill="#00D8AC">
+                    <rect id="Bar" x="0" y="71.3364258" width="25.6342412" height="54.6635742"></rect>
+                    <rect id="Bar" x="43.6731518" y="0.700195313" width="25.6342412" height="125.299805"></rect>
+                    <rect id="Bar" x="87.3463035" y="51.75" width="25.6342412" height="74.25"></rect>
+                    <rect id="Bar" x="131.968872" y="81" width="25.6342412" height="45"></rect>
+                    <rect id="Bar" x="175.642023" y="62.25" width="25.6342412" height="63.75"></rect>
+                    <polygon id="Bar" points="218.365759 107.827148 244 107.827148 244 125.827148 218.365759 125.827148"></polygon>
+                </g>
+                <g id="Header">
+                    <text id="Title" font-family="Roboto-Medium, Roboto" font-size="17" font-weight="400" fill="#232425">
+                        <tspan x="5.89876889" y="18.5238095">Sales Review</tspan>
+                    </text>
+                    <g id="Dropdown" opacity="0.6" transform="translate(191.984536, 4.238095)">
+                        <text id="Category" font-family="Roboto-Regular, Roboto" font-size="10.2" font-weight="normal" fill="#232425">
+                            <tspan x="6.46785767" y="11.547619">Weekly view</tspan>
+                        </text>
+                        <g id="Icon_down" transform="translate(70.919244, 0.000000)">
+                            <rect id="Rectangle-11" x="0" y="0" width="15.1890034" height="12.952381"></rect>
+                            <polygon id="Triangle" fill="#232425" transform="translate(8.069158, 6.880952) scale(1, -1) translate(-8.069158, -6.880952) " points="8.06915808 4.85714286 11.3917526 8.9047619 4.74656357 8.9047619"></polygon>
+                        </g>
+                    </g>
+                    <g id="Icon_menu" opacity="0.6" transform="translate(301.043814, 1.000000)">
+                        <g id="Group-7" transform="translate(1.898625, 8.095238)" fill="#232425">
+                            <ellipse id="Oval-12" cx="1.89862543" cy="1.61904762" rx="1.89862543" ry="1.61904762"></ellipse>
+                            <ellipse id="Oval-12-Copy" cx="9.49312715" cy="1.61904762" rx="1.89862543" ry="1.61904762"></ellipse>
+                            <ellipse id="Oval-12-Copy-2" cx="17.0876289" cy="1.61904762" rx="1.89862543" ry="1.61904762"></ellipse>
+                        </g>
+                        <rect id="Rectangle-16" x="0" y="0" width="22.7835052" height="19.4285714"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

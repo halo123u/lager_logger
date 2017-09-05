@@ -5,7 +5,6 @@ body {
   width: 100vw;
   margin: 0;
   margin-top: 44px;
-  background-color: #FEFCF9;
 }
 
 nav {
@@ -26,21 +25,29 @@ nav img {
   margin: 0 16px;
 }
 
-#menu {
-  background-color: #444444;
-  width: 94vw;
+#menu-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
-  padding-top: 65px;
   left: 0;
-  display: block;
-  z-index: 100;
 }
 
-#menu img {
-  margin-left: 80vw;
-  margin-top: 20px;
+#menu-side {
+  background-color: black;
+  order: 2;
+  width: 20%;
+  height: 100vh;
+}
+
+#menu {
+  background-color: #444444;
+  width: 80%;
+  height: 100vh;
+  padding-top: 65px;
+  z-index: 100;
 }
 
 #menu a {
@@ -62,7 +69,7 @@ nav img {
 
 
 h1 {
-  font-weight: bold;
+  font-weight: 600;
   font-size: 28px;
   color: rgb(74,74,74);
   margin-left: 16px;
@@ -92,7 +99,7 @@ p {
 }
 
 .box {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.1);
   margin: 20px 10px;
   padding: 10px;
   border-radius: 8px;
@@ -169,36 +176,19 @@ li span {
   height: 20px;
 }
 
-#recent-activity a, .right a {
+.blue {
   font-size: 16px;
   text-decoration: underline;
   color: #005EFF;
 }
 
-.right a {
-  margin-right: 25px;
-}
-
-#accounts button, #events button {
-  width: 300px;
-  font-size: 24px;
-  font-weight: 800;
-  margin: 20px;
-  align-self: center;
-}
-
-#accounts {
-  text-align: center;
-}
-
 button {
-  background: linear-gradient(#D8D8D8,#B3B3B3);
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  background-color: #F0F0F0;
   box-shadow: inset 0 2px 0 white;
   text-shadow: 0 1px 0 white;
   border-radius: 6px;
   color: #4A4A4A;
-  font-weight: 700;
+  font-weight: 500;
   border: 1px solid #979797;
   padding: 10px;
   font-size: 14px;
@@ -206,17 +196,32 @@ button {
   cursor: pointer;
 }
 
+.account-header {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  justify-content: space-between;
+  margin-bottom: -20px;
+}
+
+.account-header a {
+  margin-top: 30px;
+  text-decoration: underline;
+  color: #005EFF;
+}
+
 #add-note {
   text-align: right;
   margin: 25px 20px;
 }
 
-.buyer {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 25px;
-  padding-bottom: 15px;
+.create-large {
+  background-color: yellow;
+  text-align: center;
+  width: 100%;
+  margin: 10px auto;
 }
+
 
 textarea {
   border: 1px solid #979797;
@@ -227,19 +232,14 @@ textarea {
   width: 83vw;
   padding: 20px 10px;
   font-size: 14px;
-  background-color: #FEFCF9;
 }
 a {
   text-decoration: none;
   color: black;
 }
 
-.right {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-  height: 120px;
+.create-large {
+
 }
 
 .right-text{
@@ -265,23 +265,18 @@ a {
   width: 145x;
 }
 
-.right img {
-  margin-right: 10px;
-}
-
 .note {
   display: flex;
   padding: 20px 10px 15px 10px;
 }
 
-input[type=text],input[type=number],input[type=date],input[type=time] {
+input[type=text],input[type=number],input[type=date],input[type=time], .login input {
   border: 1px solid #979797;
   box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
   border-radius: 3px;
   display: block;
   text-align: left;
   font-size: 14px;
-  background-color: #FEFCF9;
 }
 
 
@@ -350,4 +345,81 @@ select {
 
 .main-container{
   margin-top: 5vh;
+}
+
+.p-header {
+  color: #A9A9A9;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.buyer {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-bottom: 15px;
+  height: 200px;
+}
+
+.right {
+  text-align: right;
+
+}
+
+.right,.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login {
+  text-align: center;
+  margin-top: 15vh;
+}
+
+#login-bkg {
+  z-index: -5;
+  left: 4px;
+  top: 19vh;
+  position: fixed;
+}
+
+.login form {
+  width: 90%;
+  margin: auto;
+}
+
+.login input {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: left;
+}
+
+.login label {
+  text-align: left;
+  margin-right: 70%;
+}
+
+.long {
+  width: 95%;
+}
+
+.nav-cover {
+  background-color: white;
+  position: fixed;
+  height: 60px;
+  width: 100vw;
+  top: 0;
+  left: 0;
+}
+
+#button-container {
+  text-align: center;
+}
+
+.large-button {
+  font-size: 24px;
+  width: 80vw;
+  margin-bottom: 15px;
+  font-weight: 400;
 }

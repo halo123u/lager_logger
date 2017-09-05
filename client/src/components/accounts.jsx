@@ -57,9 +57,14 @@ class Accounts extends Component {
 			<div id='accounts'>
 				{this.state.redirect? <Redirect to={this.state.page}/>: null}	
 				<Link to='/add-account'><button>Add Account</button></Link>
+				<h1>Accounts</h1>
+				<div id='button-container'>
+				<Link to='/add-account'><button className='large-button'>Create Account</button></Link>
+				</div>
 				<div id='recent-activity'>
 					<h5>Recent Activity</h5>
-					<a>Filter</a>
+					<a className='blue'>Sort By</a>
+					<a className='blue'>Filter</a>
 				</div>
 				{this.state.accountsLoaded ? this.state.accounts.map(this.renderAccount) : ''}
 			</div>
