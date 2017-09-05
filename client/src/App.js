@@ -84,6 +84,7 @@ class App extends Component {
 						<Route exact path='/accounts/:id' component={BuyerPage}/>
 						<Route path='/accounts/:id/add-visit' component={AddVisit} />
 						<Route path='/accounts/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ACC" id={props.match.params.id} url={props.match.url} />}/>
+						{/* why does this lead to create visit? */}
 						<Route path='/accounts/:id/add-order' component={(props) => <AddVisit id={props.match.params.id} url={props.match.url}/>}/>
 						<Route exact path='/events' component={Events}/>
 						<Route path='/add-event' component={AddEvent}/>
