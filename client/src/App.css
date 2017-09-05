@@ -232,7 +232,6 @@ textarea {
   width: 83vw;
   padding: 20px 10px;
   font-size: 14px;
-  background-color: #FEFCF9;
 }
 a {
   text-decoration: none;
@@ -278,7 +277,6 @@ input[type=text],input[type=number],input[type=date],input[type=time], .login in
   display: block;
   text-align: left;
   font-size: 14px;
-  background-color: #FEFCF9;
 }
 
 
