@@ -56,7 +56,6 @@ class Accounts extends Component {
 		return (
 			<div id='accounts'>
 				{this.state.redirect? <Redirect to={this.state.page}/>: null}	
-				<Link to='/add-account'><button>Add Account</button></Link>
 				<h1>Accounts</h1>
 				<div id='button-container'>
 				<Link to='/add-account'><button className='large-button'>Create Account</button></Link>
