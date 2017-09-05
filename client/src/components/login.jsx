@@ -28,6 +28,7 @@ class Login extends Component{
             username : this.state.username,
             password: this.state.password
         }).then(res =>{
+            console.log(res);
             this.props.handleLogin(res.data);
         });
 

@@ -7,10 +7,8 @@ class AddVisit extends Component {
 	constructor() {
 		super();
 		this.state = {
-			date_info: null,
-     	account_id: null,
- 			employee_id: 1,
- 			content: null,
+			date_info: '',
+ 			content: '',
  			redirect: false,
  			currentPage: '/',
 		}
@@ -19,22 +17,13 @@ class AddVisit extends Component {
 	}
 
 	componentDidMount() {
-		console.log('did mount');
-		console.log(this.props);
-		//get employee_id
-		axios.get('/auth/success')
-		.then(res => {
-			this.setState({
-				account_id: this.props.match.params.id,
-				employee_id: res.data.user.emp_id,
-			});
-		}).catch(err => {
-			console.log(err);
-			this.setState({
-				redirect: true,
-				currentPage: '/'
-			})
-		});
+		console.log(this.props.user);
+		console.log(this.props.accId);
+		if(!this.props.auth){
+            this.setState({
+                redirect :true
+            });
+    	}
 	}
 
 	handleInputChange(e) {
@@ -47,34 +36,38 @@ class AddVisit extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-		//add note if entered
 		if (this.state.content) {
 			axios.post('/notes', {
-				relationship_id: this.state.account_id,
+				relationship_id: this.props.accId,
 				note_type: 'ACCOUNT',
 				content: this.state.content,
 				date_info: this.state.date_info,
-				employee_id: this.state.employee_id
+				employee_id: this.props.user.emp_id
 			})
 			.then(res => console.log(res))
 			.catch(err => console.log(err));
 		}
 		axios.post('/visits', {
 			date_info: this.state.date_info,
-			account_id: this.state.account_id,
-			employee_id: this.state.employee_id,
+			account_id: this.props.accId,
+			employee_id: this.state.emp_id,
 		})
 		.then(res => {
 			console.log(res)
-			this.props.history.goBack();
+			// this.props.history.goBack();
 		})
 		.catch(err => console.log(err));
-		
+
+		this.setState({
+			redirect:true,
+			currentPage: `/accounts/${this.props.accId}`
+		});
 	}
 
 	render() {
 		return (
 			<div id='add-visit'>
+				{this.state.redirect? <Redirect to={this.state.currentPage}/>: null}	
 				<h1>Create Visit <img src={Visit}/></h1>
 				<form onSubmit={this.handleSubmit}>
 				<div className='box padded'>

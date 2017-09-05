@@ -44,6 +44,7 @@ CREATE TABLE IF NOT EXISTS notes(
     note_type VARCHAR(25),
     content TEXT,
     time_stamp VARCHAR (25),
+    date_info VARCHAR (25),
     employee_id INT REFERENCES employees(emp_id)
 );
 
