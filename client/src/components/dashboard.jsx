@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
+import {Redirect, Link} from 'react-router-dom';
 import RecentActivity from './recent-activity';
 
 class Dashboard extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			redirect:false
+		}
+	}
+
+	componentWillMount() {
+		if(!this.props.auth){
+            this.setState({
+                redirect :true
+            });
+        }
+	}
 	render () {
+
 		return (
 			<main>
+				{this.state.redirect? <Redirect to='/'/>: null}
 				<h1>Dashboard</h1>
 				<div className='box padded'>
 					<p>Sales Review</p>
