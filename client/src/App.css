@@ -26,7 +26,6 @@ nav img {
 }
 
 #menu-container {
-  background-color: orange;
   display: flex;
   flex-direction: row;
   width: 100vw;
@@ -40,17 +39,14 @@ nav img {
   background-color: black;
   order: 2;
   width: 20%;
+  height: 100vh;
 }
 
 #menu {
   background-color: #444444;
-  width: 94vw;
+  width: 80%;
   height: 100vh;
-  position: fixed;
-  top: 0;
   padding-top: 65px;
-  left: 0;
-  display: block;
   z-index: 100;
 }
 
@@ -244,7 +240,7 @@ a {
 }
 
 .create-large {
-  
+
 }
 
 .right-text{
@@ -417,4 +413,8 @@ select {
   width: 100vw;
   top: 0;
   left: 0;
+}
+
+button {
+  font-weight: 500;
 }

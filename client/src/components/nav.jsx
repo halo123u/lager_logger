@@ -22,8 +22,7 @@ class Nav extends Component {
 				<Link to='/dash' onClick={this.toggleMenu}>Dashboard</Link>
 				<Link to='/accounts' onClick={this.toggleMenu}>Accounts</Link>
 				<Link to='/events' onClick={this.toggleMenu}>Calendar</Link>
-				<Link to='/change-password' onClick={this.toggleMenu}>Change Pass</Link>
-				<Link to='/' onClick={this.toggleMenu}>Inventory</Link>
+				<Link to='/change-password' onClick={this.toggleMenu}>Admin</Link>
 				<a onClick={this.toggleMenu} id='close'>Close</a>
 				</div>
 				<div onClick={this.toggleMenu} id='menu-side'>
