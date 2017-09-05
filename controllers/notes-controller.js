@@ -91,7 +91,7 @@ const notesController= {
         })
     },
     getWithCompany: function(req,res) {
-        Notes.findAllWithCompany()
+        Notes.findAllWithCompany(req.params.id)
         .then(notes => {
             res.json(notes);
         }).catch((err)=>{

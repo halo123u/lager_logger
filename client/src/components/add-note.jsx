@@ -15,6 +15,7 @@ class AddNote extends Component {
             noteData:null,
             dataLoaded:false,
             fireRedirect:false,
+ 			currentPage: '/',
         }
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit= this.handleSubmit.bind(this);
@@ -58,12 +59,14 @@ class AddNote extends Component {
 			employee_id
 		}).then((newNote)=>{
 				this.clearState();
-				this.setState({
-			  	fireRedirect:true,
-			})
+                this.setState({
+			    fireRedirect:true,
+			    currentPage: `/accounts/${this.props.accId}`
+		});
 		}).catch(err => {
 			console.log(err);
-		})
+        })
+            
     }
 
     handleInputChange(e) {
@@ -77,6 +80,7 @@ class AddNote extends Component {
 	render () {
 		return (
             <div className="main-container">
+                {this.state.fireRedirect? <Redirect to={this.state.currentPage}/>: null}
                 <div id='recent-activity'>
                     <h1>View Note</h1>
                     <img src={Note} className='icon'/>
@@ -96,10 +100,8 @@ class AddNote extends Component {
 					</div>
 					<div className='buttons'>
 						<button type='submit'>OK</button>
-                        <Link  to={(this.props.url).replace('/add-note','')}>Back</Link>
+                        <Link to={`/accounts/${this.state.account_id}`}><button>Cancel</button></Link>
 					</div>
-                    {this.state.fireRedirect ? (<Redirect to={(this.props.url).replace('/add-note','')}/>): null}
-
 				</form>
 			</div>
 		);
