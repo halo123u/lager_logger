@@ -45,7 +45,7 @@ class Accounts extends Component {
 	render () {
 		return (
 			<div id='accounts'>
-				{this.state.redirect? <Redirect to='/'/>: null}
+				{this.state.redirect? <Redirect to='/'/>: null}	
 				<Link to='/add-account'><button>Add Account</button></Link>
 				<div id='recent-activity'>
 					<h5>Recent Activity</h5>

@@ -82,7 +82,7 @@ class App extends Component {
 		  <Route exact path='/admin-dash' component={()=> <AdminDashboard auth={this.state.auth} user={this.state.user} />} />
 		  <Route exact path='/add-emp' component ={()=> <AddEmpl auth={this.state.auth} user={this.state.user}/>} />
 	      <Route exact path='/accounts' component={() => <Accounts  auth={this.state.auth} user={this.state.user} />}/>
-		  <Route exact path='/accounts/:id' component={BuyerPage}/>
+		  <Route exact path='/accounts/:id' component={() =>  <BuyerPage auth={this.state.auth} user={this.state.user}/>}/>
 		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
 	      <Route exact path='/events' component={Events}/>
 				<Route path='/events/:event_id' component={EventsSingle} />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RecentActivity from './recent-activity';
-import { Link } from 'react-router-dom';
+import { Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 
 class BuyerPage extends Component {
@@ -15,19 +15,22 @@ class BuyerPage extends Component {
 	}
 
 	componentDidMount() {
-		console.log('did mount');
-		console.log(this.props);
+		console.log('will mount')
+		if(!this.props.auth){
+            this.setState({
+                fireRedirect :true
+            });
+    	} else {
 		axios.get(`/accounts/id/${this.props.match.params.id}`)
 		.then(res => {
 			console.log(res.data);
 			this.setState({
 				accountInfo: res.data,
 				accountInfoLoaded: true,
-				fireRedirect:true,
 			})
 			console.log(this.state)
 		}).catch(err => console.log(err));
-
+	}
 	}
 
 	renderAccountInfo() {
@@ -35,18 +38,36 @@ class BuyerPage extends Component {
 		console.log(this.state.accountInfo)
 		return (
 			<div>
-				<h1>{this.state.accountInfo.buyer}</h1>
+				<h1>{this.state.accountInfo.company}</h1>
 				<div className='box buyer'>
 					<div className='left'>
+						<b>Location</b>
 						<p>
 							{this.state.accountInfo.neighborhood || ''}<br/>
 							{this.state.accountInfo.street}<br/>
 							{this.state.accountInfo.city}, {this.state.accountInfo.state}<br/>
-							{this.state.accountInfo.zipcode}
+							{this.state.accountInfo.zipcode} <br/>
+							<b>Deliver</b> <br/>
+							{this.state.accountInfo.delivery_day} <br/>
+							{this.state.accountInfo.delivery_time}
 						</p>
 					</div>
 					<div className='right'>
-						<h3>#RD0956</h3>
+					
+						<p>
+							<b>Account Number</b> <br/>
+							#RD{this.state.accountInfo.account_num} <br/>
+							Current <br/>
+							{this.state.accountInfo.premises ? 'On Premises' : 'Off Premises'} <br/>
+						</p>
+						<p>
+							<b>Contact</b> <br/>
+							{this.state.accountInfo.buyer} <br/>
+							{this.state.accountInfo.email} <br/>
+							{this.state.accountInfo.phone}
+
+								
+						</p>
 						<a>Edit</a>
 					</div>
 				</div>
@@ -63,6 +84,7 @@ class BuyerPage extends Component {
 	render () {
 		return (
 			<div>
+								{this.state.fireRedirect? <Redirect to='/'/>: null}	
 			{this.state.accountInfoLoaded ? this.renderAccountInfo() : <h1>loading</h1>}
 			</div>
 		)

@@ -46,7 +46,7 @@ class RecentActivity extends Component {
 				notes: res.data.map(note => {note.icon = Note; return note}),
 				notesLoaded: true,
 			})
-			this.sortByDate();
+			// this.sortByDate();
 		});
 	}
 
