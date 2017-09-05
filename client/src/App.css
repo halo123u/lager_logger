@@ -328,3 +328,8 @@ select {
 .date {
   font-weight: 600;
 }
+
+.box h4 {
+  display: flex;
+  justify-content: flex-end;
+}

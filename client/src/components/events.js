@@ -38,7 +38,9 @@ class Events extends Component {
 
 	render () {
 		return (
-			<div id='events'>
+			<div>
+				<h1>Calendar</h1>
+        		<Link to={'/add-event'}><button>Add Event</button></Link>
 				{this.renderEvent()}
 			</div>
 		);

@@ -21,6 +21,8 @@ import changePassword from './components/change-password'
 import EditNote from './components/edit-note';
 import ViewNote from './components/view-note';
 import AddVisit from './components/add-visit';
+import EventsSingle from './components/event-single';
+import EditEvent from './components/edit-event';
 
 class App extends Component {
 	constructor(){
@@ -83,7 +85,9 @@ class App extends Component {
 		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
 	      <Route path='/add-note' component={AddNote}/>
 	      <Route exact path='/events' component={Events}/>
+				<Route path='/events/:event_id' component={EventsSingle} />
 	      <Route path='/add-event' component={AddEvent}/>
+				<Route path='/edit-event/:event_id' component={EditEvent}/>
 	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
 	      <Route path='/add-order-visit' component={AddOrderVisit}/>
         <Route path='/dash' component={Dashboard} />
