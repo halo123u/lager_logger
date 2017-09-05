@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Accounts extends Component {
@@ -8,21 +8,28 @@ class Accounts extends Component {
 		this.state = {
 			accounts : null,
 			accountsLoaded: false,
+			redirect: false
 		}
 		this.renderAccount = this.renderAccount.bind(this);
 	}
 
 	componentDidMount() {
-		console.log('did mount');
-		axios.get('/accounts')
-		.then(res => {
-			console.log(res.data);
-			this.setState({
-				accounts: res.data,
-				accountsLoaded: true
-			});
-		}).catch(err => console.log(err));
-	}
+		if(!this.props.auth){
+            this.setState({
+                redirect :true
+            });
+    	} else {
+			axios.get('/accounts')
+			.then(res => {
+				console.log(res.data);
+				this.setState({
+					accounts: res.data,
+					accountsLoaded: true
+				});
+			}).catch(err => console.log(err));
+		}
+}
+
 
 	renderAccount(account) {
 		return( 
@@ -38,6 +45,7 @@ class Accounts extends Component {
 	render () {
 		return (
 			<div id='accounts'>
+				{this.state.redirect? <Redirect to='/'/>: null}
 				<Link to='/add-account'><button>Add Account</button></Link>
 				<div id='recent-activity'>
 					<h5>Recent Activity</h5>
