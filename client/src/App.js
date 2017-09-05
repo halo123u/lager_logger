@@ -36,16 +36,16 @@ class App extends Component {
 		}
 	}
 	componentWillUpdate = (prevState, nextState) => {
-       if(nextState.redirect){
-         this.setState({
-           redirect: false,
-           currentPage: '/'
-         });
-          return true;
-       }else{
-         return false
-       }
-     }
+		if(nextState.redirect){
+			this.setState({
+				redirect: false,
+				currentPage: '/'
+			});
+			return true;
+		}else{
+			return false
+		}
+	}
 	handleLogin = (response) =>{
 		if (response.auth == false) {
 			console.log('wrong credentials');
@@ -53,69 +53,57 @@ class App extends Component {
 		else if (response.user.user_type === 'admin'&& response.auth == true) {
 			console.log('this is an admin');
 			this.setState({
-			auth: response.auth,
-			user: response.user,
-			redirect: true,
-			currentPage: '/admin-dash'
-		});
-		} else if (response.user.user_type === 'employee' && response.auth == true ) {
+				auth: response.auth,
+				user: response.user,
+				redirect: true,
+				currentPage: '/admin-dash'
+			});
+		}
+		else if (response.user.user_type === 'employee' && response.auth == true ) {
 			console.log('this is an employee');
 			this.setState({
-			auth: response.auth,
-			user: response.user,
-			redirect: true,
-			currentPage: '/add-account'
-		});
+				auth: response.auth,
+				user: response.user,
+				redirect: true,
+				currentPage: '/add-account'
+			});
 		}
 	}
 
   render() {
     return (
 			<Router>
-
 	      <div className="App">
-	      <Nav/>
-				<div>
-				{this.state.redirect ? (<Redirect to={`${this.state.currentPage}`}/>): null}
-				<Switch>
-	      <Route exact path='/' component={()=><Login handleLogin={this.handleLogin}/>}/>
-		  <Route exact path='/admin-dash' component={()=> <AdminDashboard auth={this.state.auth} user={this.state.user} />} />
-		  <Route exact path='/add-emp' component ={()=> <AddEmpl auth={this.state.auth} user={this.state.user}/>} />
-	      <Route exact path='/accounts' component={Accounts}/>
-		  <Route exact path='/accounts/:id' component={BuyerPage}/>
-		  <Route path='/accounts/:id/add-visit' component={AddVisit} />
-	      <Route exact path='/events' component={Events}/>
-				<Route path='/events/:event_id' component={EventsSingle} />
-	      <Route path='/add-event' component={AddEvent}/>
-				<Route path='/edit-event/:event_id' component={EditEvent}/>
-	      <Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
-	      <Route path='/add-order-visit' component={AddOrderVisit}/>
-        <Route path='/dash' component={Dashboard} />
-
-        <Route path='/change-password' component={(props) => <ChangePassword  user={this.state.user} note_type="ACC" />}/>
-
-        <Route path='/edit-note/:note_id' component={EditNote}/>
-        <Route path='/view-note/:note_id' component={ViewNote}/>
-        <Route path='/dash' component={Dashboard} />
-        >
-        <Route path='/info/:account_id' component={recentList} />
-        >
-
-        <Route path='/add-emp/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="EMP" id={props.match.params.id} url={props.match.url} />}/>
-
-        <Route path='/orders/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ORD" id={props.match.params.id} url={props.match.url} />}/>
-
-        <Route path='/accounts/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ACC" id={props.match.params.id} url={props.match.url} />}/>
-        <Route path='/edit-note/:note_id' component={EditNote}/>
-        <Route path='/view-note/:note_id' component={ViewNote}/>
-
-        <Route path='/accounts/:id/add-order' component={(props) => <AddVisit id={props.match.params.id} url={props.match.url}/>}/>
-
-
-
-        </Switch>
-	    </div>
-		</div>
+					<Nav/>
+					<div>
+					{this.state.redirect ? (<Redirect to={`${this.state.currentPage}`}/>): null}
+					<Switch>
+						<Route exact path='/' component={()=><Login handleLogin={this.handleLogin}/>}/>
+						<Route exact path='/admin-dash' component={()=> <AdminDashboard auth={this.state.auth} user={this.state.user} />} />
+						<Route exact path='/accounts' component={Accounts}/>
+						<Route exact path='/accounts/:id' component={BuyerPage}/>
+						<Route path='/accounts/:id/add-visit' component={AddVisit} />
+						<Route path='/accounts/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ACC" id={props.match.params.id} url={props.match.url} />}/>
+						{/* why does this lead to create visit? */}
+						<Route path='/accounts/:id/add-order' component={(props) => <AddVisit id={props.match.params.id} url={props.match.url}/>}/>
+						<Route exact path='/events' component={Events}/>
+						<Route path='/add-event' component={AddEvent}/>
+						<Route path='/edit-event/:event_id' component={EditEvent}/>
+						<Route exact path='/add-emp' component ={()=> <AddEmpl auth={this.state.auth} user={this.state.user}/>} />
+						<Route path='/add-account' component={() => <AddBuyer auth={this.state.auth} user={this.state.user}/>}/>
+						<Route path='/add-order-visit' component={() => <AddOrderVisit currentState={this.state}/>}/>
+						<Route path='/add-emp/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="EMP" id={props.match.params.id} url={props.match.url} />}/>
+						<Route path='/dash' component={Dashboard} />
+						<Route path='/change-password' component={(props) => <ChangePassword  user={this.state.user} note_type="ACC" />}/>
+						<Route path='/edit-note/:note_id' component={EditNote}/>
+						<Route path='/view-note/:note_id' component={ViewNote}/>
+						<Route path='/info/:account_id' component={recentList} />
+						<Route path='/orders/:id/add-note' component={(props) => <AddNote auth={this.state.auth} user={this.state.user} note_type="ORD" id={props.match.params.id} url={props.match.url} />}/>
+						<Route path='/edit-note/:note_id' component={EditNote}/>
+						<Route path='/view-note/:note_id' component={ViewNote}/>
+					</Switch>
+				</div>
+			</div>
 		</Router>
     );
   }

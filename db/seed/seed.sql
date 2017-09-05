@@ -4,7 +4,7 @@ INSERT INTO accounts (
     delivery_day, delivery_time, premises, status
 )
 VALUES
-('A1234','BAR','Bar Person','10st','NY','New York', 'LES', 10004,'1234567777', 'customer@example.com',
+('A1234','BAR','Bar Person','10st','NY','New York', 'LES', 1,'1234567777', 'customer@example.com',
 'Friday', '10:00AM', true, 'new account');
 
 
@@ -27,7 +27,7 @@ order_date,
 employee_id
 )
 VALUES
-(12973, 'Not sure', 1, '2017-08-30T13:17:53-04:00', 1);
+(1, 'Not sure', 1, '2017-08-30T13:17:53-04:00', 1);
 
 
 
@@ -37,7 +37,7 @@ cases,
 date_info
 )
 VALUES 
-(6,24,'2017-08-30T13:17:53-04:00');
+(1,24,'2017-08-30T13:17:53-04:00');
 
 
 

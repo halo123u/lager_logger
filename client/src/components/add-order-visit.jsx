@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import moment from 'moment'
 
 class AddOrderVisit extends Component {
 	constructor(){
 		super();
 		this.state = {
-			order: false
+			order: false,
+			delivery_info_time: 10
 		}
 	}
 
 	handleFormSubmission = (e) => {
 		e.preventDefault();
 		console.log('this is where we make an axios post request to /order with this.state')
+		
 		if(this.state.order){
 			// include employee id here also
+			axios.post('/orders', this.state)
 		}
+	}
+
+	componentDidMount(){
+		console.log('mounted')
+		this.setState({
+			user: this.props.currentState.user
+		})
 	}
 
 	handleOrder = (e) => {
@@ -30,8 +42,6 @@ class AddOrderVisit extends Component {
 		})
 	}
 	handleInput = e => {
-		// console.log(e.target.name)
-		// console.log(e.target.value)
 		let name = e.target.name 
 		let value = e.target.value 
 		this.setState({
